@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    
+    <style>
+    
+    body {
+        font-family: 'Roboto';
+        }
+        #edit {
+          transition: .5s ease;
+          position:relative;
+          left: 85%;
+          background-color: #039BE5;
+          color: #FFFFFF;
+        }
+        #from-today {
+          position:relative;
+          left: 10%;
+        }
+        #date-text {
+          position:relative;
+          left: 10%;
+        }
+        #due-date-picker {
+          position:relative;
+          left: 10%;
+        }
+        #time-picker {
+          position:relative;
+          left:10%
+        }
+        
+    </style>
+  </head>
+  <body>
+    <div class="sidebar branding-below">
+      <form>
+        <div>
+          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--mini-fab" type="button" id="edit">
+            <i class="material-icons">edit</i>
+          </button>
+        </div>
+        <div class="block form-group" id="contents">
+          <p id="from-today"></p>
+          <p id="date-text"></p>
+          <input type="date" id="due-date-picker" name="Due Date"
+               value="2018-10-22"
+               min="2000-0-0"
+               max="2100-0-0">
+          <input type="time" id="time-picker" name="Time" value="00:00">
+          <script>
+          n =  new Date();
+          y = n.getFullYear();
+          m = n.getMonth() + 1;
+          d = n.getDate();
+          if(m < 10) {m = '0'+m}
+          if(d < 10) {d = '0'+d}
+          
+          var monthNames = [
+            "Jan", "Feb", "Mar",
+            "Apr", "May", "Jun", "Jul",
+            "Aug", "Sep", "Oct",
+            "Nov", "Dec"];
+          
+          document.getElementById("from-today").innerHTML = 'Due in: ';
+          document.getElementById("date-text").innerHTML = 'Due on: ';
+          
+          var today = y + '-' + m + '-' + d;
+          var max = 2100+ '-' + m + '-' + d;
+          document.getElementById("due-date-picker").setAttribute("value", today);
+          </script>
+        </div>
+        
+        <div>
+          <p style="line-height: 10px;">
+        </div>
+        <div class="block-form-group">
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="submit-date" type="button">Submit</button>
+        </div>
+        <label id="switch1" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
+          <input type="checkbox" class="mdl-switch__input">
+          <span class="mdl-switch__label">Show Google calendar event</span>
+        </label>
+        
+        <button id="calendar-link" val="Yee" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button">
+          <i class="material-icons">event</i>
+        </button>
+        <div class="mdl-tooltip mdl-tooltip--right" data-mdl-for="calendar-link">
+          <strong>Open G Calendar</strong>
+        </div>
+      </form>
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+       /**
+       * On document load, assign click handlers to each button and try to load the
+       * user's origin and destination language preferences if previously set.
+       */
+      $(function() {
+        $('#run-translation').click(runTranslation);
+        $('#insert-text').click(insertText);
+        google.script.run.withSuccessHandler(loadPreferences)
+            .withFailureHandler().getPreferences();
+      });
+           
+      /**
+       * Callback function that populates the origin and destination selection
+       * boxes with user preferences from the server.
+       *
+       * @param {Object} languagePrefs The saved origin and destination languages.
+       */
+      function loadPreferences(languagePrefs) {
+        var on = languagePrefs.showCalendar;
+        
+        if(on == "true"){
+          $('#switch1')[0].MaterialSwitch.on();
+          disableCalendarButton(false);
+        } else {
+          $('#switch1')[0].MaterialSwitch.off();
+          disableCalendarButton(true);
+        }
+        
+        var dateObj = new Date();
+        dateObj.setTime(languagePrefs.text);
+        
+        if(dateObj.getYear() == 69 && dateObj.getMonth() == 11 && dateObj.getDay() == 3){
+          dateObj = new Date();
+        }
+        
+        var link = languagePrefs.link;
+        $('#calendar-link').val(link);
+//        $('#calendar-link').attr('href', "");
+        
+        
+        alert(hyphenDate(dateObj));
+        
+        $('#due-date-picker').val(hyphenDate(dateObj));
+        $('#date-text').html(dateText(dateObj));
+        $('#time-picker').val(hyphenTime(dateObj));
+        $('#from-today').html(fromDateText(dateObj));
+        //1536955200000
+        //1536958800000
+        var temp = new Date(dateObj.getTime());
+        temp.setHours(18, 0, 0);
+//        google.script.run.createEvent("Title", dateObj, temp);
+      }
+      
+      $('#calendar-link').click(function(){
+//        alert("Yee");
+        var link = $('#calendar-link').val();
+        window.open(link);
+      });
+      
+      function disableCalendarButton(on){
+        $('#calendar-link').prop("disabled",on);
+      }
+      
+      function dateText(dateObj){
+//        alert("Yee: " + isToday(dateObj));
+        return 'Due on: <b>' + formatDate(dateObj) + '</b> at <b>' + formatTime(dateObj) + '</b>';
+      }
+      
+      function fromDateText(dateObj){
+        var fromToday = daysFromToday(dateObj);
+        var days = fromToday.days+1;
+        var hours = fromToday.hours;
+        var minutes = fromToday.minutes;
+        var over = fromToday.over;
+        
+        var string = "";
+        
+        var day = "days";
+        var hour = "hours";
+        var minute = "minutes";
+        
+        if(days == 1){day = "day";}
+        if(hours == 1){hour = "hour";}
+        if(minutes == 1){minute = "minute";}
+        
+        if(days != 0){string += days + " " + day + " ";}
+        if(hours != 0){string += hours + " " + hour + " ";}
+        if(minutes != 0){string += minutes + " " + minute + " ";}
+        
+        if(over){
+          $('#from-today').attr('style', "color:red;");
+          return "<b>" + string + "overdue!<b>";
+        }
+        
+        $('#from-today').attr('style', "color:black;")
+        return "Due in: <b>" + string + "<b>";
+      }
+      
+      function hyphenTime(dateObj){
+        var hrs = dateObj.getHours();
+        var mins = dateObj.getMinutes();
+        if(hrs < 10) {hrs = '0' + hrs;}
+        if(mins < 10) {mins = '0' + mins;}
+        return hrs + ':' + mins;
+      }
+      
+      function formatTime(dateObj){
+        var hour = dateObj.getHours();
+//        alert(hour);
+        var min = dateObj.getMinutes();
+        var am = 'am'
+        if(hour >= 12){am = 'pm'; hour -= 12;}
+        if(hour == 0) {hour = 12;}
+        if(min < 10) {min = '0' + min;}
+        return hour + ':' + min + ' ' + am;
+      }
+      
+      function isToday(input){
+        var todaysDate = new Date();
+        var inputDate = new Date(input.getTime());
+        inputDate.setDate(input.getDate()+1);
+//        alert('in: ' + inputDate + ' td: ' + todaysDate);
+        return inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0);
+      }
+      
+      function isTomorrow(input){
+        var todaysDate = new Date();
+        todaysDate.setDate(todaysDate.getDate()+1);
+        var inputDate = new Date(input.getTime());
+        inputDate.setDate(input.getDate()+1);
+//        alert('in: ' + inputDate + ' td: ' + todaysDate);
+        return inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0);
+      }
+      
+      /**
+       * Runs a server-side function to translate the user-selected text and update
+       * the sidebar UI with the resulting translation.
+       */
+      function runTranslation() {
+        this.disabled = true;
+        $('#error').remove();
+        var origin = $('input[name=origin]:checked').val();
+        var dest = $('input[name=dest]:checked').val();
+        var savePrefs = $('#save-prefs').is(':checked');
+//        google.script.run.save("Yee");
+        
+        google.script.run
+            .withSuccessHandler(
+              function(textAndTranslation, element) {
+                $('#translated-text').val(textAndTranslation.translation);
+                element.disabled = false;
+              })
+            .withFailureHandler(
+              function(msg, element) {
+                showError(msg, $('#button-bar'));
+                element.disabled = false;
+              })
+            .withUserObject(this)
+            .getTextAndTranslation("Yee", savePrefs);
+      }
+      
+      function hyphenDate(dateObj){
+        var y = dateObj.getFullYear();
+        var m = dateObj.getMonth() + 1;
+        var d = dateObj.getDate()+1;
+        if(m < 10) {m = '0'+m}
+        if(d < 10) {d = '0'+d}
+        
+        return y + '-' + m + '-' + d;
+      }
+      
+      $("#submit-date").click(function(){
+//        alert("Submit");
+        
+        var checked = $('#switch1').is('.is-checked');
+        alert(checked);
+        
+        disableCalendarButton(true);
+        
+        google.script.run.saveShowCalendar(checked);
+        
+        var dateObj = new Date($('#due-date-picker').val());
+        var time = $('#time-picker').val()
+        var hr = time.substring(0, 2);
+        var min = time.substring(3, 6);
+        dateObj.setHours(hr, min, 0);
+        
+        if(isNaN(dateObj.getHours())){
+          alert("Error: invalid date");
+        } else {
+          disableCalendarButton(true);
+          $('#from-today').html(fromDateText(dateObj));
+          $('#date-text').html(dateText(dateObj));
+          google.script.run.saveText(dateObj.getTime());
+          
+          dateObj.setDate(dateObj.getDate()+1);
+          var tempDate = new Date(dateObj.getTime());
+          var dateHour = dateObj.getHours();
+          tempDate.setHours(dateHour+1);
+          
+          var startTime = dateObj.getTime();
+          var endTime = tempDate.getTime();
+          
+          google.script.run.withSuccessHandler(updateLink).changeEvent(startTime, endTime, checked);
+          alert("Done submitting");
+        }
+        
+      });
+      
+      function updateLink(link){
+        $('#calendar-link').val(link);
+        if(link == undefined){
+          disableCalendarButton(true);
+        } else {
+          disableCalendarButton(false);
+        }
+      }
+      
+      
+      function daysFromToday(dateOb){
+        
+        var dateObj = new Date(dateOb.getTime());
+        dateObj.setDate(dateObj.getDate()+1);
+        
+        var today = new Date().getTime();
+        var future = dateObj.getTime();
+        
+        var delta = Math.abs(future - today) / 1000;
+        
+        // calculate (and subtract) whole days
+        var days = Math.floor(delta / 86400)-1;
+        delta -= (days+1) * 86400;
+        
+        // calculate (and subtract) whole hours
+        var hours = Math.floor(delta / 3600) % 24;
+        delta -= hours * 3600;
+        
+        // calculate (and subtract) whole minutes
+        var minutes = Math.floor(delta / 60) % 60;
+        delta -= minutes * 60;
+        
+        var over = false;
+        if(today > dateObj){
+          over = true;
+        }
+        
+        return {
+          over: over,
+          days: days,
+          hours: hours,
+          minutes: minutes
+        }
+        
+//        alert(days + " " + hours + " " + minutes);
+        
+//        var date1 = new Date();
+//        var timeDiff = Math.abs(dateObj.getTime() - date1.getTime());
+//        var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+//        if(date1 > dateObj){diffDays = -1*diffDays;}
+//        return diffDays;
+      }
+
+      function formatDate(date) {
+        if(isToday(date)){
+//          alert('Format date: today');
+          return 'Today';
+        } else if(isTomorrow(date)){
+          return 'Tomorrow';
+        }
+        
+        var monthNames = [
+          "Jan", "Feb", "Mar",
+          "Apr", "May", "Jun", "Jul",
+          "Aug", "Sep", "Oct",
+          "Nov", "Dec"];
+        
+        var day = date.getDate()+1;
+        var monthIndex = date.getMonth();
+        var year = date.getFullYear();
+        //console.log("Yee");
+        return day + ' ' + monthNames[monthIndex] + ' ' + year;
+      }
+      
+      function validate(value, min, max){
+        return value >= min && value <= max;
+      }
+
+      /**
+       * Runs a server-side function to insert the translated text into the document
+       * at the user's cursor or selection.
+       */
+      function insertText() {
+        this.disabled = true;
+        $('#error').remove();
+        google.script.run
+            .withSuccessHandler(
+              function(returnSuccess, element) {
+                element.disabled = false;
+              })
+            .withFailureHandler(
+              function(msg, element) {
+                showError(msg, $('#button-bar'));
+                element.disabled = false;
+              })
+            .withUserObject(this)
+            .insertText($('#translated-text').val());
+      }
+
+      /**
+       * Inserts a div that contains an error message after a given element.
+       *
+       * @param {string} msg The error message to display.
+       * @param {DOMElement} element The element after which to display the error.
+       */
+      function showError(msg, element) {
+        var div = $('<div id="error" class="error">' + msg + '</div>');
+        $(element).after(div);
+      }
+    </script>
+  </body>
+</html>
