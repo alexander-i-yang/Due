@@ -4,7 +4,8 @@
     <base target="_top">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="https://storage.googleapis.com/non-spec-apps/mio-icons/latest/outline.css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     
@@ -13,13 +14,17 @@
     body {
         font-family: 'Roboto';
         }
+        
+        
         #edit {
           transition: .5s ease;
-          position:relative;
-          left: 85%;
-          background-color: #039BE5;
-          color: #FFFFFF;
+          opacity: 0%;
         }
+        
+        .material-icons.list-icon {
+          background color: solid black;
+        }
+        
         #from-today {
           position:relative;
           left: 10%;
@@ -37,24 +42,299 @@
           left:10%
         }
         
+        #edit {
+          -webkit-transition-duration: 0.5s;
+          -moz-transition-duration: 0.5s;
+          -o-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+          -webkit-transition-property: -webkit-transform;
+          -moz-transition-property: -moz-transform;
+          -o-transition-property: -o-transform;
+          transition-property: transform;
+        }
+        
+        
+        
+        #link-field-title {
+          width:175px;
+          margin-right: 5px;
+        }
+        
+        #link-field-url {
+          width:175px;
+        }
+        
+        #link-text-fields {
+          margin-top:-10px;
+          margin-left:20px;
+        }
+        
+        #first-item {
+          font-size: 14px;
+        }
+        
+        #second-item {
+          font-size: 14px;
+        }
+        
+        #show-calendar {
+          margin-left: 25px;
+        }
+        
+        .nested-list {
+          margin-left: 25px;
+          margin-bottom: -10px;
+        }
+        
+        .chip-button {
+          border-radius: 40px;
+          border: 1.5px solid gray;
+        }
+        
+        .mdl-chip__contact {
+          height: 16px;
+          width: 16px;
+        }
+        
+        #bookmark-dialog {
+          padding: 0px;
+          height: 250px;
+          width: 200px;
+          
+        }
+        
+        #bookmark-dialog-content {
+          padding:15px;
+          margin:0px;
+        }
+        
+        #bookmark-dialog-buttons {
+          margin-right:5px;
+          padding:0px;
+        }
+        
+        #reminder-field-div {
+          width: 30px;
+        }
+        
+        #default-reminder-field-div {
+          width: 60px;
+          margin-top:-50px;
+        }
+        
+        #add-bookmark {
+          height:30px;
+          width:30px;
+          min-width:initial;
+        }
+        
+        #settings-button {
+          position:absoulte;
+          left:-60px;
+          transition: .5s ease;
+        }
+        
+        #settings-button {
+          -webkit-transition-duration: 0.5s;
+          -moz-transition-duration: 0.5s;
+          -o-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+          -webkit-transition-property: -webkit-transform;
+          -moz-transition-property: -moz-transform;
+          -o-transition-property: -o-transform;
+          transition-property: transform;
+        }
+        
+        #settings-header {
+          margin-left:10px;
+        }
+        
+        .third-line-list {
+          margin-left:56px;
+        }
+        
+        .mdl-list__item {
+          margin:-5px;
+        }
+        
+        .no-margin-list {
+          padding-top:0px;
+          padding-bottom:0px;
+        }
+        
+        #default-reminder-field-div {
+          padding-top:0px;
+          padding-bottom:0px;
+        }
+        
+        #reminder-option-div {
+          width:180px;
+          padding-top:0px;
+          padding-bottom:0px;
+        }
+        
+        #reminder-option {
+          margin-left:10px;
+        }
+        
+        #reminder-method-div {
+          padding-right:0px;
+        }
+      
+      #edit {
+        position:fixed;
+        right:20px;
+        bottom:20px;
+        z-index:3;
+      }
+      
+      .margin-list {
+        margin-left:30px;
+      }
+      
+      .margin-extra-list {
+        margin-left:55px;
+      }
+      
+      #default-dialog {
+        margin-left:30px;
+      }
+      
+      #no-bookmarks {
+        margin-left: 35px;
+      }
+      
+      #bookmark-list {
+        padding-left:0px;
+      }
+      
     </style>
   </head>
   <body>
-    <div class="sidebar branding-below">
-      <form>
+  <div class = "mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class = "mdl-layout__header mdl-layout__header--scroll">
+      <div class = "mdl-layout__header-row">
+        <button class="mdl-button mdl-js-button mdl-button--icon" type="button" id="settings-button" val="viewing">
+          <i class="material-icons" id="settings-icon">settings</i>
+        </button>
+        <div class = "mdl-layout-spacer"></div>
+      </div>
+    </header>
+    <div id = "loading-bar" class = "mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+  </div>
+    <br><br>
+    <main class="mdl-layout__content">
+      <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" type="button" id="edit" val="viewing">
+          <i class="material-icons" id="edit-icon">edit</i>
+        </button>
+      <section id="main-section">
+        <div class="page-content">
+          <form>
         <div>
-          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--mini-fab" type="button" id="edit">
-            <i class="material-icons">edit</i>
-          </button>
+          <div class="mdl-tooltip mdl-tooltip--left" data-mdl-for="edit" id="edit-tooltip">
+            <strong>Edit</strong>
+          </div>
         </div>
         <div class="block form-group" id="contents">
-          <p id="from-today"></p>
-          <p id="date-text"></p>
-          <input type="date" id="due-date-picker" name="Due Date"
+        <ul class="mdl-list">
+          <li class="mdl-list__item mdl-list__item--three-line" id="first-item">
+            <i class="material-icons list-icon">access_time</i>
+            <span class="mdl-list__item-primary-content">
+              <span id="from-today"></span><br id="date-list-break">
+              <span id="date-text"></span>
+              <input type="date" id="due-date-picker" name="Due Date"
                value="2018-10-22"
                min="2000-0-0"
-               max="2100-0-0">
-          <input type="time" id="time-picker" name="Time" value="00:00">
+               max="2100-0-0"><br height="10px">
+              <input type="time" id="time-picker" name="Time" value="00:00">
+            </span>
+          </li>
+          <li class="mdl-list__item" id="second-item">
+            <i class="material-icons list-icon">event</i>
+            <ul class="mdl-list">
+              <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content nested-list" id="show-calendar">
+                  Show G calendar event
+                </span>
+                <span class = "mdl-list__item-primary-content nested-list" id="calendar-button">
+                  <button id="calendar-link" val="Yee" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" disabled>
+                    Loading
+                  </button>
+                  <div class="mdl-tooltip mdl-tooltip--top" data-mdl-for="calendar-link">
+                    <strong>Open Google Calendar event</strong>
+                  </div>
+                </span>
+                <br>
+                <span class="mdl-list__item-secondary-action">
+                  <label id="switch1" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
+                    <input type="checkbox" class="mdl-switch__input"/>
+                  </label>
+                </span>
+              </li>
+              <li class="mdl-list__item">
+                
+                <span class = "mdl-list__item-primary-content nested-list" id="reminder-edit">
+                  <form action="#">
+                    <span id="reminder-text"><span id="reminder-method-span">Email</span> reminder in
+                    <div class="mdl-textfield mdl-js-textfield" id="reminder-field-div">
+                      <input class="mdl-textfield__input" type="text" pattern="([1-9]\d{1,}|[5-9])" id="reminder-field">
+                      <label class="mdl-textfield__label" for="reminder-field" id="reminder-field-label">10</label>
+                      <div class="mdl-tooltip mdl-tooltip--right" data-mdl-for="reminder-field-div">
+                        5 min or more
+                      </div>
+                    </div>
+                    minutes
+                    </span>
+                  </form>
+                </span>
+                <span class="mdl-list__item-primary-content nested-list">
+                  <span id="reminder-display">
+                    <i>No Reminders</i>
+                  </span>
+                </span>
+                <span class="mdl-list__item-secondary-action">
+                  <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" id="show-reminder">
+                    <input type="checkbox" id="reminder-check" class="mdl-switch__input" checked/>
+                  </label>
+                </span>
+              </li>
+            </ul>
+          </li>
+          <li class="mdl-list__item" id="third-item">
+            <i class="material-icons list-icon" id="bookmark-icon" val="">bookmarks</i>
+            <i id="no-bookmarks">No bookmarks</i>
+            <span style="color:gray" id="no-bookmarks"></span>
+            <span class = "mdl-list__item-primary-content" id="bookmark-span">
+              <ul id="bookmark-list">
+                
+              </ul>
+              <!--button class="mdl-button mdl-js-button chip-button text-left text-center" val="https://www.google.com" type="button" id="bookmark">
+                <img class="mdl-chip__contact" src="http://s2.googleusercontent.com/s2/favicons?domain_url=http://photos.google.com">Bookmark</button-->
+            </span>
+            <span class="mdl-list__item-primary-content">
+              <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" type="button" id="add-bookmark">
+               <i class="material-icons">add</i>
+              </button>
+            </span>
+          </li>
+        </ul>
+          <dialog class="mdl-dialog" id="bookmark-dialog">
+	        	<div class="mdl-dialog__content" id="bookmark-dialog-content">
+	        		<div class="mdl-textfield mdl-js-textfield" id="link-field-title">
+                <input class="mdl-textfield__input" type="text" id="link-title">
+                <label class="mdl-textfield__label" for="link-title">Link Title</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield" id="link-field-url">
+                <input class="mdl-textfield__input" type="text" id="link-url">
+                <label class="mdl-textfield__label" for="link-url">Link URL</label>
+              </div>
+	        	</div>
+		        <div class="mdl-dialog__actions" id="bookmark-dialog-buttons">
+		        	<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" id="bookmark-dialog-save" type="button">Save</button>
+			        <button type="button" class="mdl-button" id="bookmark-dialog-delete" type="button">Delete</button>
+	        	</div>
+	        </dialog>
+          
           <script>
           n =  new Date();
           y = n.getFullYear();
@@ -70,47 +350,383 @@
             "Nov", "Dec"];
           
           document.getElementById("from-today").innerHTML = 'Due in: ';
-          document.getElementById("date-text").innerHTML = 'Due on: ';
+          document.getElementById("date-text").innerHTML = 'Due: ';
           
           var today = y + '-' + m + '-' + d;
           var max = 2100+ '-' + m + '-' + d;
           document.getElementById("due-date-picker").setAttribute("value", today);
           </script>
         </div>
-        
-        <div>
-          <p style="line-height: 10px;">
-        </div>
-        <div class="block-form-group">
-          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="submit-date" type="button">Submit</button>
-        </div>
-        <label id="switch1" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
-          <input type="checkbox" class="mdl-switch__input">
-          <span class="mdl-switch__label">Show Google calendar event</span>
-        </label>
-        
-        <button id="calendar-link" val="Yee" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button">
-          <i class="material-icons">event</i>
-        </button>
-        <div class="mdl-tooltip mdl-tooltip--right" data-mdl-for="calendar-link">
-          <strong>Open G Calendar</strong>
-        </div>
       </form>
-    </div>
+        </div>
+      </section>
+      <section id="settings-section">
+        <div class="page-content">
+          <h4 id="settings-header">Settings</h4>
+          <ul class="demo-list-icon mdl-list">
+            <li class="mdl-list__item">
+              <i class="material-icons mdl-list__item-icon large-icon">access_time</i>
+              <span class="mdl-list__item-primary-content">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="default-dialog">
+                  Configure defaults
+                </button>
+              </span>
+            </li>
+            
+            <li class="mdl-list__item">
+              <i class="material-icons mdl-list__item-icon large-icon">notifications</i>
+              <span class="mdl-list__item-primary-content margin-list">
+                    Default reminder
+                  </span>
+                  <span class="mdl-list__item-secondary-action">
+                    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" id="default-reminder-min-switch" for="default-reminders">
+                      <input type="checkbox" id="default-reminders" class="mdl-switch__input"/>
+                    </label>
+                  </span>
+              <li class="mdl-list__item" id="default-reminder-min-form">
+                  <span class="mdl-list__item-primary-content margin-extra-list">
+                    <form action="#">
+                      <span id="reminder-text">Minutes before:
+                        <div class="mdl-textfield mdl-js-textfield" id="default-reminder-field-div">
+                          <input class="mdl-textfield__input" type="number" id="default-reminder-field">
+                          <label class="mdl-textfield__label" for="default-reminder-field" id="reminder-field-label">10</label>
+                        </div>
+                      </span>
+                    </form>
+                  </span>
+                </li>
+          <li class="mdl-list__item" id="reminder-method-div">
+                  <span class="mdl-list__item-primary-content margin-extra-list">
+                    By: <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="reminder-option-div">
+                      <select class="mdl-textfield__input" id="reminder-options" name="reminder-options">
+                        <option>Email</option>
+                        <option>SMS</option>
+                        <option>Popup</option>
+                      </select>
+                    </div>
+                  </span>
+                </li>    
+            </li>
+            <li class="mdl-list__item mdl-list__item--three-line">
+              <span class="mdl-list__item-primary-content">
+                <i class="material-icons mdl-list__item-icon large-icon">contact_support</i>
+                <span>Questions? <a href="mailto:support@duedocs.org">Email us!</a></span>
+                <span class="mdl-list__item-text-body third-line-list">
+                  If you're going to spam, just use the dev's <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">personal email</a>.
+                </span>
+              </span>
+            </li>
+            
+            <li class="mdl-list__item mdl-list__item--three-line">
+              <span class="mdl-list__item-primary-content">
+                <i class="material-icons mdl-list__item-icon large-icon">attach_money</i>
+                <a href="https://www.patreon.com/">Donate!</a>
+                <span class="mdl-list__item-text-body third-line-list">
+                  Help the dev go to college so he can keep making stuff for you.
+                </span>
+              </span>
+            </li>
+            
+            <li class="mdl-list__item mdl-list__item--three-line">
+              <span class="mdl-list__item-primary-content">
+                <i class="material-icons mdl-list__item-icon large-icon">bug_report</i>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="report-bug">
+                  Report a bug
+                </button>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    
     <script>
        /**
        * On document load, assign click handlers to each button and try to load the
        * user's origin and destination language preferences if previously set.
        */
       $(function() {
-        $('#run-translation').click(runTranslation);
+      	$('#settings-section').hide();
+        $('#settings-button').val("main-content");
         $('#insert-text').click(insertText);
+        showLinkText(false);
+        showDateFields(false);
+        showSwitch(false);
+        showAddBookmark(false);
         google.script.run.withSuccessHandler(loadPreferences)
             .withFailureHandler().getPreferences();
       });
-           
+      
+      $('#report-bug').click(function() {
+        google.script.run.reportBug();
+      });
+      
+      function showAddBookmark(on){
+        if(on){
+          $('#add-bookmark').show();
+        } else {
+          $('#add-bookmark').hide();
+        }
+      }
+      
+      $('#default-dialog').click(function() {
+        google.script.run.showDefaultDialog();
+      });
+      
+      $('#edit').click(function(){
+        var status = $('#edit').val();
+        var fadeMilis = 250;
+        if ($( this ).css("transform") == 'none' ){
+        	$(this).css("transform","rotate(360deg)");
+            $('#settings-button').fadeOut(fadeMilis);
+        } else {
+      		$(this).css("transform","" );
+            $('#settings-button').fadeIn(fadeMilis);
+        }
+        if(status == "editing"){
+          $('#edit').val("viewing");
+          $('#edit-icon').html("edit");
+          $('#edit-tooltip').html("<strong>Edit<strong>");
+          showLinkText(false);
+          showDateFields(false);
+          var reminderMins = saveReminder();
+          updateDate(reminderMins);
+          showSwitch(false);
+          showAddBookmark(false);
+        } else {
+          $('#edit').val("editing");
+          $('#edit-icon').html("check");
+          $('#edit-tooltip').html("<strong>Save<strong>");
+          showLinkText(true);
+          showDateFields(true);
+          showSwitch(true);
+          showAddBookmark(true);
+        }
+      });
+      
+      function saveReminder(){
+        var remindText = $('#reminder-field').val();
+        var numMinutes = +remindText;
+        var reminderOn = $('#show-reminder').is('.is-checked');
+        if(isNaN(numMinutes) || numMinutes < 0 || remindText.length == 0 || numMinutes < 5){
+          numMinutes = defaultReminderMins();
+          var remindText = $('#reminder-field').val(numMinutes);
+          $('#reminder-field-div').removeClass("is-invalid");
+        }
+        reminderText(reminderOn, numMinutes);
+        google.script.run.saveReminder(reminderOn, numMinutes);
+        if(!reminderOn) {
+        	return -1;
+        }
+        return numMinutes;
+      }
+      
+      $('#settings-button').click(function() {
+        var fadeMilis = 250;
+        if ($( this ).css( "transform" ) == 'none' ){
+        	$(this).css("transform","rotate(240deg)");
+            $('#edit').fadeOut(fadeMilis);
+        } else {
+      		$(this).css("transform","" );
+            $('#edit').fadeIn(fadeMilis);
+        }
+        
+        var status = $(this).val();
+        if(status == "main-content") {
+          $('#main-section').hide();
+          $('#settings-section').fadeIn(fadeMilis);
+          $(this).val("settings-page");
+        } else if(status == "settings-page") {
+          $('#main-section').fadeIn(fadeMilis);
+          $('#settings-section').hide();
+          $(this).val("main-content");
+          saveSettings();
+        }
+      });
+      
+      function saveSettings() {
+        var reminder = $('#default-reminder-min-switch').is('.is-checked');
+        var reminderMins = $('#default-reminder-field').val();
+        if(reminderMins.length == 0) reminderMins = "10";
+        $('#reminder-field-label').html(reminderMins);
+        
+        var mins = $('#reminder-field').val();
+        var on = $('#show-reminder').is('.is-checked');
+        reminderText(on, mins);
+        
+        google.script.run.saveDefaultReminders(reminder, reminderMins, $('#reminder-options').val());
+      }
+      
+      $('#bookmark-dialog-delete').click(function(){
+        var dialog = document.querySelector('dialog');
+		if (! dialog.showModal) {
+		  dialogPolyfill.registerDialog(dialog);
+		}
+        var id = dialog.value;
+        var title = $('#'+id).html();
+        title = title.substring(title.indexOf('>')+1, title.length);
+        var url = $('#'+id).val();
+        var $parent = $('#'+id).parent().parent();
+        try {
+          $('#'+id).parent().remove();
+          google.script.run.deleteBookmark(id);
+        } catch (e) {}
+        
+        if($parent.html().length == 32) {
+          $('#no-bookmarks').show();
+        }
+        dialog.close();
+      });
+			
+      $( "#show-reminder" ).change(function(){
+        var on = $(this).is('.is-checked');
+        disableReminder(!on);
+      });
+      
+      function disableReminder(on){
+        if(on){
+          $('#reminder-field').attr("disabled", "disabled");
+          $("#reminder-edit").css({'color': 'gray'});
+        } else {
+        	$('#reminder-field').removeAttr("disabled");
+          $("#reminder-edit").css({'color': '#333'});
+        }
+      }
+      
+      function showSwitch(on){
+        if(on){
+          $('#show-calendar').show();
+          $('#switch1').show();
+          $('#calendar-button').hide();
+          
+          $('#reminder-edit').show();
+          $('#show-reminder').show();
+          $('#reminder-display').hide();
+        } else {
+          $('#show-calendar').hide();
+          $('#switch1').hide();
+          $('#calendar-button').show();
+          
+          $('#reminder-edit').hide();
+          $('#show-reminder').hide();
+          $('#reminder-display').show();
+        }
+      }
+      
+      //$("#bookmark").on('click',{element: $('#bookmark')},chipClick);
+      
+      function chipClick(element){
+        var status = $('#edit').val();
+        if(status == "editing"){
+          var dialog = document.querySelector('dialog');
+          var id = element.data.element.attr('id');
+          dialog.value = id;
+          var $button = element.data.element;
+          var title = $('#'+id).html();
+          title = title.substring(title.indexOf('>')+1, title.length);
+          var url = $('#'+id).val();
+          if(title == "Untitled" && url.length == 0){
+            clearDialogFields();
+          } else {
+            setDialogFields(title, url);
+          }
+          if (! dialog.showModal) {
+						dialogPolyfill.registerDialog(dialog);
+					}
+          dialog.show();
+        } else {
+          var link = $(this).val();
+          window.open(link);
+        }
+      }
+      
+      $("#bookmark-dialog-save").click(function() {
+        var dialog = document.querySelector('dialog');
+				if (! dialog.showModal) {
+					dialogPolyfill.registerDialog(dialog);
+				}
+        dialog.close();
+        saveLink(dialog.value);
+      });
+      
+      function saveLink(id){
+        var title = $('#link-title').val();
+        var url = $('#link-url').val();
+        updateCustomLink(title, url, id);
+        var gTitle = title + '@' + id;
+        var gUrl = url + '@' + id;
+        google.script.run.saveCustomLink(gTitle, gUrl);
+      }
+      
+      function showDateFields(show){
+        if(show){
+          $('#due-date-picker').show();
+          $('#time-picker').show();
+          $('#from-today').hide();
+          $('#date-text').hide();
+          $('#date-list-break').hide();
+        } else {
+          $('#due-date-picker').hide();
+          $('#time-picker').hide();
+          $('#from-today').show();
+          $('#date-text').show();
+          $('#date-list-break').show();
+        }
+      }
+      
+      function updateCustomLink(title, url, plainId){
+        var id = '#' + plainId;
+        if(title.length == 0) {
+          $(id).html("Untitled");
+        } else {
+          if(title.length > 15){
+          	title = title.substring(0, 12) + "...";
+          }
+          $(id).html(title);
+        }
+        var img = '<img class="mdl-chip__contact" src="http://s2.googleusercontent.com/s2/favicons?domain_url='
+        if(url.length == 0){
+          var status = $('#edit').val();
+          $(id).val("");
+          img += "https://photos.google.com" + '">';
+          $(id).html(img + title);
+        } else {
+          $(id).val(url);
+          img += url + '">';
+          $(id).html(img + title);
+        }
+      }
+      
+      function setDialogFields(title, url) {
+      	$('#link-title').val(title);
+        $('#link-title').parent().addClass('is-dirty');
+        $('#link-url').val(url);
+        $('#link-url').parent().addClass('is-dirty');
+      }
+      
+      function clearDialogFields(){
+        $('#link-title').val("");
+        $('#link-url').val("");
+        $('#link-title').parent().removeClass('is-dirty');
+        $('#link-url').parent().removeClass('is-dirty');
+      }
+      
+      function showLinkText(on) {
+        if(on){
+          $('#link-text-fields').show();
+        } else {
+          $('#link-text-fields').hide();
+        }
+      }
+      
+      $('#add-bookmark').click(function() {
+        createInput();
+      });
+      
       /**
        * Callback function that populates the origin and destination selection
        * boxes with user preferences from the server.
@@ -119,7 +735,6 @@
        */
       function loadPreferences(languagePrefs) {
         var on = languagePrefs.showCalendar;
-        
         if(on == "true"){
           $('#switch1')[0].MaterialSwitch.on();
           disableCalendarButton(false);
@@ -128,44 +743,178 @@
           disableCalendarButton(true);
         }
         
+        var firstTime = false;
+        if(on == null) firstTime = true;
+        
         var dateObj = new Date();
         dateObj.setTime(languagePrefs.text);
-        
         if(dateObj.getYear() == 69 && dateObj.getMonth() == 11 && dateObj.getDay() == 3){
           dateObj = new Date();
         }
         
         var link = languagePrefs.link;
         $('#calendar-link').val(link);
-//        $('#calendar-link').attr('href', "");
+        setDate(dateObj);
+        var temp = new Date(dateObj.getTime());
+        temp.setHours(18, 0, 0);
         
+        var bookmarks = languagePrefs.bookmarks;
+        bookmarks.sort();
         
-        alert(hyphenDate(dateObj));
+        var numBookmarks = 0;
+        for(var index in bookmarks){
+          numBookmarks++;
+        }
+        if(numBookmarks != 0) {
+          $('#no-bookmarks').hide();
+          numBookmarks /= 2;
+          for(var i = 0; i<numBookmarks; ++i){
+            createInput();
+          }
+        }
         
+        var reminderMethod = languagePrefs.reminderMethod;
+        if(reminderMethod != null) {
+          $('select').find('option').each(function() {
+              if($(this).val() == reminderMethod) {
+                $(this).attr('selected', 'selected');
+              }
+          });
+        } else {
+          reminderMethod = "Email";
+        }
+        
+        var urlIndex = 8;
+        var titleIndex = 8;
+        for(var index in bookmarks){
+//          bookmarks[index];
+          var pair = bookmarks[index];
+          var elem = pair[0];
+          
+          var val = pair[1];
+          var plainid = elem.substring(elem.lastIndexOf('@')+1);
+          var thing = elem.substring(0, elem.lastIndexOf('@'));
+          
+          if(thing == "url") {
+            plainid = plainid.substring(0, urlIndex);
+            urlIndex++;
+            var id = '#' + plainid;
+            
+            var html = $(id).html();
+            var title = html.substring(html.lastIndexOf('">')+2);
+            updateCustomLink(title, val, plainid);
+          } else if(thing == "title"){
+            plainid = plainid.substring(0, titleIndex);
+            titleIndex++;
+            var id = '#' + plainid;
+            var url = $(id).val();
+            updateCustomLink(val, url, plainid);
+          }
+        }
+        
+        var reminderOn = true;
+        if(languagePrefs.reminderOn == "false") {
+          $('#show-reminder')[0].MaterialSwitch.off();
+          reminderOn = false;
+          disableReminder(true);
+        } else {
+          $('#show-reminder')[0].MaterialSwitch.on();
+          disableReminder(false);
+        }
+        
+        disableReminder(!reminderOn);
+        var reminderMins = parseInt(languagePrefs.reminderMins);
+        if(isNaN(reminderMins)) reminderMins = defaultReminderMins();
+        $('#reminder-field').val(reminderMins);
+        $('#reminder-field').parent().addClass('is-dirty');
+        
+        reminderText(reminderOn, reminderMins);
+        
+        updateDate(reminderMins);
+        loadDefaultReminders(languagePrefs.defaultReminderOn, languagePrefs.defaultReminderMins, firstTime);
+        $('#loading-bar').fadeOut(500);
+      }
+      
+      function getReminderMethod() {
+        var selected = "Email";
+        $('select option:selected').each(function() {
+          selected = $(this).val();
+        });
+        return selected;
+      }
+      
+      function defaultReminderMins() {
+        return parseInt($('#default-reminder-field').val());
+      }
+      
+      function loadDefaultReminders(reminderOn, reminderMins, firstTime) {
+        var on = true;
+        if(reminderOn == null || reminderOn == "false") on = false;
+        var mins = 10;
+        if(reminderMins != null) mins = parseInt(reminderMins);
+        if(on || firstTime){
+          $('#default-reminder-min-switch')[0].MaterialSwitch.on();
+          $('#show-reminder')[0].MaterialSwitch.on();
+        }
+        setDefaultReminderMins(mins);
+      }
+      
+      function setDefaultReminderMins(mins) {
+        $('#default-reminder-field').val(mins);
+        $('#default-reminder-field').parent().addClass('is-dirty');
+        $('#reminder-field-label').html(mins);
+      }
+      
+      function dialogDate(date) {
+        var dateObj = new Date(date);
+        setDate(dateObj);
+      }
+      
+      function setDate(dateObj) {
         $('#due-date-picker').val(hyphenDate(dateObj));
         $('#date-text').html(dateText(dateObj));
         $('#time-picker').val(hyphenTime(dateObj));
         $('#from-today').html(fromDateText(dateObj));
-        //1536955200000
-        //1536958800000
-        var temp = new Date(dateObj.getTime());
-        temp.setHours(18, 0, 0);
-//        google.script.run.createEvent("Title", dateObj, temp);
+      }
+      
+      function reminderText(on, mins) {
+        if(!on){
+          $('#reminder-display').html("<i>No Reminders</i>");
+          $('#reminder-display').attr('style', "color:gray;");
+        } else {
+          reminderTextMin(mins);
+          $('#reminder-display').attr('style', "color:#333;");
+        }
+      }
+      
+      function reminderTextMin(mins) {
+        var method = getReminderMethod();
+        $('#reminder-method-span').html(method);
+        mins = isNaN(mins) ? defaultReminderMins() : mins;
+        $('#reminder-display').html(method + " reminder: " + mins + " minutes before due");
       }
       
       $('#calendar-link').click(function(){
-//        alert("Yee");
         var link = $('#calendar-link').val();
         window.open(link);
       });
       
-      function disableCalendarButton(on){
+      $('#custom-link').click(function() {
+        var link = $('#custom-link').val();
+        window.open(link);
+      });
+      
+      function disableCalendarButton(on) {
         $('#calendar-link').prop("disabled",on);
+        if(on) {
+          $('#calendar-link').text("Loading");
+        } else {
+          $('#calendar-link').text("Open in G Calendar");
+        }
       }
       
       function dateText(dateObj){
-//        alert("Yee: " + isToday(dateObj));
-        return 'Due on: <b>' + formatDate(dateObj) + '</b> at <b>' + formatTime(dateObj) + '</b>';
+        return 'Due: <b>' + formatDate(dateObj) + '</b> at <b>' + formatTime(dateObj) + '</b>';
       }
       
       function fromDateText(dateObj){
@@ -178,16 +927,21 @@
         var string = "";
         
         var day = "days";
-        var hour = "hours";
-        var minute = "minutes";
+        var hour = "hrs";
+        var minute = "mins";
         
         if(days == 1){day = "day";}
-        if(hours == 1){hour = "hour";}
-        if(minutes == 1){minute = "minute";}
+        if(hours == 1){hour = "hr";}
+        if(minutes == 1){minute = "min";}
         
         if(days != 0){string += days + " " + day + " ";}
         if(hours != 0){string += hours + " " + hour + " ";}
         if(minutes != 0){string += minutes + " " + minute + " ";}
+        
+        if(days==0 && hours==0 && minutes==0) {
+          $('#from-today').attr('style', "color:red;");
+          return "<b>Due now!<b>"
+        }
         
         if(over){
           $('#from-today').attr('style', "color:red;");
@@ -208,7 +962,6 @@
       
       function formatTime(dateObj){
         var hour = dateObj.getHours();
-//        alert(hour);
         var min = dateObj.getMinutes();
         var am = 'am'
         if(hour >= 12){am = 'pm'; hour -= 12;}
@@ -221,7 +974,6 @@
         var todaysDate = new Date();
         var inputDate = new Date(input.getTime());
         inputDate.setDate(input.getDate()+1);
-//        alert('in: ' + inputDate + ' td: ' + todaysDate);
         return inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0);
       }
       
@@ -230,35 +982,7 @@
         todaysDate.setDate(todaysDate.getDate()+1);
         var inputDate = new Date(input.getTime());
         inputDate.setDate(input.getDate()+1);
-//        alert('in: ' + inputDate + ' td: ' + todaysDate);
         return inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0);
-      }
-      
-      /**
-       * Runs a server-side function to translate the user-selected text and update
-       * the sidebar UI with the resulting translation.
-       */
-      function runTranslation() {
-        this.disabled = true;
-        $('#error').remove();
-        var origin = $('input[name=origin]:checked').val();
-        var dest = $('input[name=dest]:checked').val();
-        var savePrefs = $('#save-prefs').is(':checked');
-//        google.script.run.save("Yee");
-        
-        google.script.run
-            .withSuccessHandler(
-              function(textAndTranslation, element) {
-                $('#translated-text').val(textAndTranslation.translation);
-                element.disabled = false;
-              })
-            .withFailureHandler(
-              function(msg, element) {
-                showError(msg, $('#button-bar'));
-                element.disabled = false;
-              })
-            .withUserObject(this)
-            .getTextAndTranslation("Yee", savePrefs);
       }
       
       function hyphenDate(dateObj){
@@ -271,11 +995,24 @@
         return y + '-' + m + '-' + d;
       }
       
-      $("#submit-date").click(function(){
-//        alert("Submit");
+      function createInput() {
+        $('#no-bookmarks').hide();
+        var $list = $('<li></li>');
         
+        var newId = $('#bookmark-icon').val();
+        $('#bookmark-icon').val(newId+1);
+        var first = '<button class="mdl-button mdl-js-button chip-button text-left text-center" val="" type="button" id="bookmark';
+        var second = '"><img class="mdl-chip__contact" src="http://s2.googleusercontent.com/s2/favicons?domain_url=http://photos.google.com">Untitled</button>'
+        var buttonHtml = first + newId + second;
+        
+        var $button = $(buttonHtml);
+        $button.on('click',{element: $button}, chipClick);
+        $list.append($button);
+        $('#bookmark-list').append($list);
+      }
+      
+      function updateDate(reminderMins){
         var checked = $('#switch1').is('.is-checked');
-        alert(checked);
         
         disableCalendarButton(true);
         
@@ -302,12 +1039,9 @@
           
           var startTime = dateObj.getTime();
           var endTime = tempDate.getTime();
-          
-          google.script.run.withSuccessHandler(updateLink).changeEvent(startTime, endTime, checked);
-          alert("Done submitting");
+          google.script.run.withSuccessHandler(updateLink).changeEvent(startTime, endTime, checked, reminderMins, getReminderMethod());
         }
-        
-      });
+      }
       
       function updateLink(link){
         $('#calendar-link').val(link);
@@ -352,19 +1086,10 @@
           hours: hours,
           minutes: minutes
         }
-        
-//        alert(days + " " + hours + " " + minutes);
-        
-//        var date1 = new Date();
-//        var timeDiff = Math.abs(dateObj.getTime() - date1.getTime());
-//        var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-//        if(date1 > dateObj){diffDays = -1*diffDays;}
-//        return diffDays;
       }
 
       function formatDate(date) {
         if(isToday(date)){
-//          alert('Format date: today');
           return 'Today';
         } else if(isTomorrow(date)){
           return 'Tomorrow';
@@ -378,6 +1103,10 @@
         
         var day = date.getDate()+1;
         var monthIndex = date.getMonth();
+        if(day > 31) {
+          day = 1;
+          monthIndex+=1;
+        }
         var year = date.getFullYear();
         //console.log("Yee");
         return day + ' ' + monthNames[monthIndex] + ' ' + year;
