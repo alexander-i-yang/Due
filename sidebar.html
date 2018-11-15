@@ -114,7 +114,9 @@
         }
         
         #reminder-field-div {
-          width: 30px;
+          margin-top:0px;
+          margin-bottom:0px;
+          width: 50px;
         }
         
         #default-reminder-field-div {
@@ -188,6 +190,18 @@
         z-index:3;
       }
       
+      #settings-section {
+        margin-right: 20px;
+      }
+      
+      #main-section {
+        margin-right: 20px;
+      }
+      
+      #reminder-list-item {
+        margin-left:45px;
+      }
+      
       .margin-list {
         margin-left:30px;
       }
@@ -249,45 +263,40 @@
               <input type="time" id="time-picker" name="Time" value="00:00">
             </span>
           </li>
-          <li class="mdl-list__item" id="second-item">
+          <li class="mdl-list__item">
             <i class="material-icons list-icon">event</i>
-            <ul class="mdl-list">
-              <li class="mdl-list__item">
-                <span class="mdl-list__item-primary-content nested-list" id="show-calendar">
-                  Show G calendar event
-                </span>
-                <span class = "mdl-list__item-primary-content nested-list" id="calendar-button">
-                  <button id="calendar-link" val="Yee" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" disabled>
-                    Loading
-                  </button>
-                  <div class="mdl-tooltip mdl-tooltip--top" data-mdl-for="calendar-link">
-                    <strong>Open Google Calendar event</strong>
-                  </div>
-                </span>
-                <br>
-                <span class="mdl-list__item-secondary-action">
-                  <label id="switch1" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
-                    <input type="checkbox" class="mdl-switch__input"/>
-                  </label>
-                </span>
-              </li>
-              <li class="mdl-list__item">
-                
-                <span class = "mdl-list__item-primary-content nested-list" id="reminder-edit">
-                  <form action="#">
-                    <span id="reminder-text"><span id="reminder-method-span">Email</span> reminder in
-                    <div class="mdl-textfield mdl-js-textfield" id="reminder-field-div">
-                      <input class="mdl-textfield__input" type="text" pattern="([1-9]\d{1,}|[5-9])" id="reminder-field">
+            <span class="mdl-list__item-primary-content nested-list" id="show-calendar">
+              Show G calendar event
+            </span>
+            <span class = "mdl-list__item-primary-content nested-list" id="calendar-button">
+              <button id="calendar-link" val="Yee" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" disabled>Loading</button>
+              <div class="mdl-tooltip mdl-tooltip--top" data-mdl-for="calendar-link">
+                <strong>Open Google Calendar event</strong>
+              </div>
+            </span>
+            <span class="mdl-list__item-secondary-action">
+              <label id="switch1" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
+                <input type="checkbox" class="mdl-switch__input"/>
+                </label>
+            </span>
+          </li>
+          
+          <li class="mdl-list__item" id="reminder-list-item">
+            <span class = "mdl-list__item-primary-content" id="reminder-edit">
+              <form action="#">
+                <span id="reminder-text"><span id="reminder-method-span">Email</span> reminder in
+                  <div class="mdl-textfield mdl-js-textfield" id="reminder-field-div">
+                    <input class="mdl-textfield__input" type="text" pattern="([1-9]\d{1,}|[5-9])" id="reminder-field">
                       <label class="mdl-textfield__label" for="reminder-field" id="reminder-field-label">10</label>
                       <div class="mdl-tooltip mdl-tooltip--right" data-mdl-for="reminder-field-div">
-                        5 min or more
+                        5+ min
                       </div>
                     </div>
                     minutes
                     </span>
                   </form>
                 </span>
-                <span class="mdl-list__item-primary-content nested-list">
+                <span class="mdl-list__item-primary-content">
                   <span id="reminder-display">
                     <i>No Reminders</i>
                   </span>
@@ -297,9 +306,8 @@
                     <input type="checkbox" id="reminder-check" class="mdl-switch__input" checked/>
                   </label>
                 </span>
-              </li>
-            </ul>
           </li>
+          
           <li class="mdl-list__item" id="third-item">
             <i class="material-icons list-icon" id="bookmark-icon" val="">bookmarks</i>
             <i id="no-bookmarks">No bookmarks</i>
@@ -751,7 +759,6 @@
         if(dateObj.getYear() == 69 && dateObj.getMonth() == 11 && dateObj.getDay() == 3){
           dateObj = new Date();
         }
-        
         var link = languagePrefs.link;
         $('#calendar-link').val(link);
         setDate(dateObj);
@@ -824,7 +831,7 @@
         
         disableReminder(!reminderOn);
         var reminderMins = parseInt(languagePrefs.reminderMins);
-        if(isNaN(reminderMins)) reminderMins = defaultReminderMins();
+        if(isNaN(reminderMins) || reminderMins == null) reminderMins = languagePrefs.defaultReminderMins;
         $('#reminder-field').val(reminderMins);
         $('#reminder-field').parent().addClass('is-dirty');
         
