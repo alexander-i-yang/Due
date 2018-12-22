@@ -49,6 +49,19 @@
         width:180px;
       }
       
+      .mdl-textfield__input {
+        background-color: #eeeeee;
+        border-radius: 5px;
+      }
+      
+      .nested-span {
+        margin-top:5px;
+      }
+      
+      .mdl-list__item-text-body {
+        margin-left:56px;
+      }
+      
       #notification-types {
         width:70px;
       }
@@ -61,7 +74,11 @@
       }
       
       .list-padded {
-        margin-right: 40px;
+        margin-right: 35px;
+      }
+      
+      #default-day-types {
+        width:180px;
       }
       
       #time-types {
@@ -74,7 +91,6 @@
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
-          <!-- Title -->
           <span class="mdl-layout-title" id="title-text">Title</span>
           <div class="mdl-layout-spacer"></div>
           <button class="mdl-button mdl-js-button mdl-button--icon" id="settings-button">
@@ -184,7 +200,90 @@
             </ul>
           </div>
           
-          <div class="tab" id="settings-tab">Settings</div>
+          <div class="tab" id="settings-tab">
+            <ul class="mdl-list list-padded">
+              <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-icon">access_time</i>
+                  <div>
+                    Default:
+                    <div class="nested-span">
+                      <select class="mdl-textfield__input" id="default-day-types">
+                          <option id="default-day-types-same">The same day</option>
+                          <option id="notification-types-next">The next day</option>
+                          <option id="notification-types-first">The first suggestion</option>
+                          <option id="notification-types-custom">Custom</option>
+                        </select>
+                      <div id="default-datepicker-div" class="mdl-textfield mdl-js-textfield mdl-datepicker">
+                        <input class="mdl-textfield__input" type="date" name="date" id="default-datepicker" value="">
+                      </div>
+                      <div id="default-timepicker-div" class="mdl-textfield mdl-js-textfield mdl-datepicker">
+                        <input class="mdl-textfield__input" type="time" id="default-timepicker" value="">
+                      </div>
+                    </div>
+                  </div>
+                </span>
+              </li>
+              
+              <li class="mdl-list__item sub-list-item" id="notification-list">
+                <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-icon">notifications</i>
+                  <div>
+                    Default:
+                    <span class="mdl-list__item-primary-content nested-span">
+                      <select class="mdl-textfield__input" id="notification-types">
+                        <option id="notification-types-email">Email</option>
+                        <option id="notification-types-popup">Popup</option>
+                        <option id="notification-types-sms">SMS</option>
+                        <option id="notification-types-sms">None</option>
+                      </select>
+                      <div id="notification-number-div" class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="number" id="notification-number" value="10">
+                      </div>
+                      <select class="mdl-textfield__input" id="time-types">
+                        <option id="time-types-minutes">Mins</option>
+                        <option id="time-types-hours">Hrs</option>
+                        <option id="time-types-days">Days</option>
+                      </select>
+                    </span>
+                  </div>
+                </span>
+              </li>
+              
+              <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-icon">calendar_today</i>
+                  Default Google Calendar Event
+                </span>
+                <span class="mdl-list__item-secondary-action padded-secondary-action">
+                  <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" id="show-g-calendar-switch-label" for="show-g-calendar-switch">
+                    <input type="checkbox" id="show-g-calendar-switch" class="mdl-switch__input" checked />
+                  </label>
+                </span>
+              </li>
+              
+              <li class="mdl-list__item mdl-list__item--three-line">
+                <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-icon">contact_support</i>
+                  <span>Questions? <a href="mailto:support@duedocs.org">Email us!</a></span>
+                    <span class="mdl-list__item-text-body">
+                    If you're going to spam, just use the dev's <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">personal email</a>.
+                  </span>
+                </span>
+              </li>
+              
+              <li class="mdl-list__item mdl-list__item--three-line">
+              <span class="mdl-list__item-primary-content">
+                <i class="material-icons mdl-list__item-icon">attach_money</i>
+                <a href="https://www.patreon.com/">Donate!</a>
+                <span class="mdl-list__item-text-body third-line-list">
+                  Help the dev go to college so he can keep making stuff for you.
+                </span>
+              </span>
+            </li>
+              
+            </ul>
+          </div>
           
         </div>
       </main>
@@ -195,7 +294,7 @@
       
       <script>
         $(function() {
-          showOnlyTab("edit-tab");
+          showOnlyTab("settings-tab");
           let square = new Bookmark("WWWWWWWW", "https://www.google.com", "id");
           for(var i = 0; i<5; ++i) {
             addBookmark(square);
@@ -205,7 +304,6 @@
         //Tab methods
         function showOnlyTab(id) {
           $(".tab").each(function() {
-            //alert($(this).attr("id"));
             if(id == $(this).attr("id")) {
               $(this).show();
             } else {
@@ -222,6 +320,15 @@
             $("#notification-list").delay(300).fadeIn();
           }
         });
+        
+        $('#default-day-types').change(function() {
+          var date = $(this).val();
+          if(date == "Custom") {
+            $('#default-datepicker-div').fadeIn();
+          } else {
+            $('#default-datepicker-div').fadeOut();
+          }
+      	});
         
         //Bookmark methods
         class Bookmark {
