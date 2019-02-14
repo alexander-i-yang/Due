@@ -40,13 +40,66 @@ function getDarkMode() {
   return PropertiesService.getUserProperties().getProperty("dark-mode-on");
 }
 
+function saveDefNotification(type, time, timeType) {
+  saveDefNotifTimeType(timeType);
+  saveDefNotifTime(time);
+  saveDefNotifType(type);
+}
+
+function saveDefNotifTimeType(type) {
+  var userProp = PropertiesService.getUserProperties();
+  userProp.setProperty("def-notification-time-type", type);
+}
+
+function getDefNotifTimeType() {
+  var userProp = PropertiesService.getUserProperties();
+  return userProp.getProperty("def-notification-time-type");
+}
+
+function saveDefNotifTime(time) {
+  var userProp = PropertiesService.getUserProperties();
+  userProp.setProperty("def-notification-time", time);
+}
+
+function getDefNotifTime() {
+  var userProp = PropertiesService.getUserProperties();
+  return userProp.getProperty("def-notification-time");
+}
+
+function saveDefNotifType(type) {
+  var userProp = PropertiesService.getUserProperties();
+  userProp.setProperty("def-notification-type", type);
+}
+
+function getDefNotifType() {
+  var userProp = PropertiesService.getUserProperties();
+  return userProp.getProperty("def-notification-type");
+}
+
+function saveDefCalendarOn(on) {
+  var userProp = PropertiesService.getUserProperties();
+  userProp.setProperty("def-calendar-on", on);
+}
+
+function getDefCalendarOn() {
+  var userProp = PropertiesService.getUserProperties();
+  return userProp.getProperty("def-calendar-on");
+}
+
 function loadSettings() {
   var userProp = PropertiesService.getUserProperties();
   return {
     dayType: userProp.getProperty("def-day-type"),
-    darkModeOn: getDarkMode(),
     time: userProp.getProperty("def-time"),
-    day: userProp.getProperty("def-day")
+    day: userProp.getProperty("def-day"),
+    
+    notifType: getDefNotifType(),
+    notifTime: getDefNotifTime(),
+    notifTimeType: getDefNotifTimeType(),
+    
+    calendarOn: getDefCalendarOn(),
+    
+    darkModeOn: getDarkMode()
   }
 }
 
