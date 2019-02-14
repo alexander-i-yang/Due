@@ -14,44 +14,317 @@
         font-family: 'Roboto';
       }
       
+      body.dark {
+        background:#263238;
+        color:#90a4ae;
+      }
+      
+      .material-icons.dark {
+        color:#cfd8dc;
+      }
+      
+      span.dark {
+        color:#90a4ae;
+      }
+      
+      .mdl-layout-title.dark {
+        color:#cfd8dc;
+      }
+      
+      .mdl-layout__header.dark {
+        background: #37474f;
+        box-shadow:none;
+      }
+      
       .mdl-layout__header-row {
-        padding-left: 24px !important;
+        padding-left: 24px;
+      }
+      
+      input.dark {
+        background:#37474f;
+        color:#90a4ae;
+      }
+      
+      select.dark {
+        background: #37474f;
+        color:#90a4ae;
+      }
+      
+      span.red {
+        color:red;
+      }
+      
+      span.red.dark {
+        color:red;
+      }
+      
+      input[disabled].dark {
+        background:#3a454b;
+        color:#5d696f;
+      }
+      
+      select[disabled].dark {
+        background:	#3a454b;
+        color:#5d696f;
+      }
+      
+      .mdl-switch.is-checked.dark .mdl-switch__track{
+        background:#379;
+      }
+      
+      .mdl-switch.is-checked.dark .mdl-switch__thumb{
+        background:#3b89b0;
+      }
+      
+      .mdl-switch.is-checked.dark .mdl-ripple{
+        background:#3b89b0;
+      }
+      
+      .mdl-switch.dark .mdl-switch__track{
+        background:#6c787f;
+      }
+      
+      .mdl-switch.dark .mdl-switch__thumb{
+        background:#546e7a;
+      }
+      
+      .mdl-switch.dark .mdl-ripple{
+        background:#546e7a;
+      }
+      
+      .mdl-textfield__error.dark {
+        background:#37474f;
+        color:#ef9a9a;
       }
       
       .mdl-chip__contact {
         height: 16px;
         width: 16px;
+        margin-top:-3px;
+        margin-left:-5px;
+      }
+      
+      .add-bookmark-button {
+        border-radius: 40px;
+        font-size:14px;
+      }
+      
+      .mdl-button--accent.dark {
+        color:#7986cb;
+        border-color:#7986cb;
+      }
+      
+      .mdl-button--accent:hover {
+        background-color:#e3f2fd;
+      }
+      
+      .mdl-button--accent.dark:hover {
+        background-color:rgba(121, 134, 203, 0.2);
+        border-color:#7986cb;
+      }
+      
+      .mdl-button--accent:active {
+        background-color:#e3f2fd;
+      }
+      
+      .mdl-button--accent.dark:active {
+        background-color:rgba(121, 134, 203, 0.2);
+        border-color:#7986cb;
+      }
+      
+      .raised-button:active {
+        box-shadow: 0 1.5px 2.5px 1px rgba(0,0,0,0.05), 0 1px 2px 1px rgba(0,0,0,0.05), 1.5px 1px 2.5px 1px rgba(0,0,0,0.05), -1.5px 1px 2.5px 1px rgba(0,0,0,0.05);
+      }
+      
+      .raised-button.dark:active {
+        box-shadow: 0 1.5px 2.5px 1px rgba(255, 255, 255, 0.06), 0 1px 2px 1px rgba(255, 255, 255, 0.06), 1.5px 1px 2.5px 1px rgba(255, 255, 255, 0.06), -1.5px 1px 2.5px 1px rgba(255, 255, 255, 0.06);
+      }
+      
+      .square-button {
+        border-radius:5px;
+      }
+      
+      .mdl-button--accent {
+        border-color: #bbdefb;
+        border-width:1px;
+        border-style: solid;
+      }
+      
+      .notification-list {
+        padding-bottom:25px;
+      }
+      
+      .notification-error {
+        width:173px;
+        margin-left:-78px;
+      }
+      
+      .mdl-button--accent.dark[disabled] {
+        border-color:#3a454b;
+        color:#3a454b;
+      }
+      
+      .mdl-button--accent.dark:hover[disabled] {
+        background:transparent;
+      }
+      
+      .mdl-button--accent.dark[disabled] .add-bookmark-icon {
+        color:#3a454b;
+      }
+      
+      .mdl-button--accent[disabled] {
+        border-color:#e0e0e0;
+        background-color:#9e9e9e;
+      }
+      
+      .mdl-button--red {
+        border-radius:5px;
+        border-style:solid;
+        border-width:1px;
+        border-color:#e0e0e0;
+      }
+      
+      .mdl-button--red:hover {
+        background-color:#ffebee;
+        border-color:#ffcdd2;
+      }
+      
+      .mdl-button--red.dark:hover {
+        /*background-color:rgba(181, 28, 28, 0.7);*/
+        background-color:red;
+        border-color:red;
+        /*border-color:	#c62828;*/
+        color:#e1e7ea;
+      }
+      
+      .mdl-button--red:active {
+        background-color:#ffdce0;
+        border-color:#f7b3b6;
+      }
+      
+      .mdl-button--red.dark:active {
+        background-color:red;
+        border-color:red;
+        /*border-color:#c62828;*/
+        color:white;
+      }
+      
+      button.dark {
+        color:#90a4ae;
+        border-color:#90a4ae;
+      }
+      
+      .mdl-progress.dark > .progressbar {
+        background-color: #3b89b0;
+      }
+      
+      .mdl-progress.dark > .bufferbar {
+        background:#8cbfd9;
+        /*background-image: linear-gradient(to right, rgba(255,255,255, 0.7), rgba(255,255,255, 0.7)), linear-gradient(to right, #3b89b0, #3b89b0);*/
+      }
+      
+      .mdl-progress.dark > .auxbar {
+        background:#8cbfd9;
+        /*background-image: linear-gradient(to right, rgba(255,255,255, 0.9), rgba(255,255,255, 0.9)), linear-gradient(to right, #3b89b0, #3b89b0);*/
       }
       
       .bookmark-button {
         border-radius: 40px;
         white-space:nowrap;
+        font-size:14px;
+        border-color:#e0e0e0;
+        border-width:1px;
+        border-style: solid;
+      }
+      
+      .bookmark-button:hover {
+        background-color:#eeeeee;
+      }
+      
+      .bookmark-button.dark:hover {
+        background-color:rgba(238, 238, 238, 0.1);
+      }
+      
+      .bookmark-button:active {
+        background-color:#E7E7E7;
+        border-color:#cfcfcf;
+      }
+      
+      .bookmark-button.dark:active {
+        background-color:rgba(144, 164, 174, 0.3);
+        border-color:#78909c;
       }
       
       .bookmark-list {
-        line-height: 2.7em
+        line-height: 2.5em;
+        width: 100px;
       }
       
-      #add-bookmark {
-        height:30px;
-        min-width:30px;
+      #bookmark-list-container {
+        line-height: 2.5em;
       }
       
-      .fixed-button {
-        position:fixed;
-        left:20px;
-        bottom:20px;
-        z-index:3;
+      #suggest-submit {
+        margin-top:20px;
       }
       
-      .mdl-datepicker {
+      .add-bookmark-icon {
+        margin-left:-10px;
+        margin-top:-3px;
+      }
+      
+      .add-bookmark-icon.dark {
+        color:#7986cb;
+      }
+      
+      select.time-types {
+        margin-left: 12px;
+        width:72px;
+      }
+      
+      .mdl-js-textfield {
         padding:0px;
         width:180px;
       }
       
+      .mdl-textfield__input.dark {
+        border-bottom: 0.5px solid #455a64;
+      }
+      
       .mdl-textfield__input {
+        padding-left:4px;
+        padding-right:4px;
+        margin-bottom:5px;
         background-color: #eeeeee;
         border-radius: 5px;
+        border-bottom: 0.5px solid 	#bdbdbd;
+      }
+      
+      .mdl-textfield.is-invalid > .mdl-textfield__input[disabled] {
+        border-bottom-left-radius: 0px; 
+        border-bottom-right-radius: 0px;
+      
+      }
+      
+      .mdl-textfield__input.dark:invalid {
+        border-bottom: 1px solid red;
+      }
+      
+      .mdl-textfield__label {
+        margin-left:4px;
+      }
+      
+      .mdl-textfield__input.dark + .mdl-textfield__label {
+        color: #3b89b0;
+      }
+      
+      .mdl-textfield__input.dark:invalid + .mdl-textfield__label {
+        color: #ef9a9a;
+      }
+      
+      input:invalid {
+        border-bottom-left-radius: 0px; 
+        border-bottom-right-radius: 0px;
       }
       
       .nested-span {
@@ -62,15 +335,62 @@
         margin-left:56px;
       }
       
-      #notification-types {
-        width:70px;
+      .mdl-list__item-text-body.dark {
+        color:#90a4ae;
       }
       
-      #notification-number-div {
-        width:37px;
+      .mdl-list__item-sub-title.dark {
+        color:#90a4ae !important;
+        /*I am sorry developers everywhere*/
+      }
+      
+      .mdl-list__item--three-line {
+        height:90px;
+      }
+      
+      .nav-button {
+        margin-left: 5px;
+      }
+      
+      #loading-bar {
+        position:fixed;
+        top:55px;
+      }
+      
+      .mdl-textfield__error {
+        padding: 5px;
+        color: black;
+        background-color: #ffcdd2;
+      }
+      
+      select.notification-types {
+        width:75px;
+      }
+      
+      #suggest-tab {
+        margin-left:20px;
+        margin-top:20px;
+      }
+      
+      div.notification-number {
+        width: 27px;
         padding:0px;
-        margin-left:10px;
-        margin-right:10px;
+        margin-left:3px;
+      }
+      
+      #main-notification-text {
+        width: 180px;
+      }
+      
+      #show-g-cal-list {
+        width:105%;
+      }
+      
+      #show-g-calendar-span {
+        width:1      }
+      
+      .mdl-list {
+        margin-top: 0px;
       }
       
       .list-padded {
@@ -81,8 +401,88 @@
         width:180px;
       }
       
-      #time-types {
-        width:55px;
+      .shake {
+        animation: shake 0.3s;
+        animation-iteration-count: 1;
+      }
+      
+      .mdl-textfield--floating-label {
+        padding-top:15px;
+        padding-bottom:15px;
+      }
+      
+      .mdl-switch {
+        z-index:0;
+      }
+      
+      input[disabled] {
+        background-color: #f5f5f5;
+        color: gray;
+      }
+      
+      .mdl-textfield__error[disabled] {
+        background-color: #f5f5f5;
+        color: gray;
+      }
+      
+      .mdl-textfield__error.dark[disabled] {
+        background-color: #3a454b;
+        color: gray;
+      }
+      
+      select[disabled] {
+        background-color: #f5f5f5;
+        color: gray;
+      }
+      
+      #text-width {
+        position: absolute;
+        visibility: hidden;
+        height: auto;
+        width: auto;
+        white-space: nowrap;
+      }
+      
+      .no-bookmarks {
+        color:#9e9e9e;
+      }
+      
+      #default-day-types {
+        width:188px;
+      }
+      
+      .circle {
+        position: absolute;
+        width: 1000px;
+        height: 622px;
+        left:-1000px;
+        z-index:10;
+        top:0;
+        overflow: hidden;
+        background-color: #3f51b5;
+        transition: all 0.5s;
+      }
+      
+      .circle.close {
+        left:100%;
+      }
+      
+      .circle.dark {
+        background:	#37474f;
+      }
+      
+      @keyframes shake {
+        0% { transform: translate(3px)}
+        10% { transform: translate(-3px)}
+        20% { transform: translate(3px)}
+        30% { transform: translate(-3px)}
+        40% { transform: translate(3px)}
+        50% { transform: translate(-3px)}
+        60% { transform: translate(3px)}
+        70% { transform: translate(-2px)}
+        80% { transform: translate(2px)}
+        90% { transform: translate(-1px)}
+        100% { transform: translate(1px)}
       }
     </style>
     
@@ -93,48 +493,101 @@
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title" id="title-text">Title</span>
           <div class="mdl-layout-spacer"></div>
-          <button class="mdl-button mdl-js-button mdl-button--icon" id="settings-button">
+          <button class="mdl-button mdl-js-button mdl-button--icon nav-button" id="edit-button">
+            <i class="material-icons">edit</i>
+          </button>
+          <div class="mdl-tooltip" data-mdl-for="edit-button" id="edit-button-tooltip">
+            Edit
+          </div>
+          <button class="mdl-button mdl-js-button mdl-button--icon nav-button" id="settings-button">
             <i class="material-icons">settings</i>
           </button>
+          <div class="mdl-tooltip" data-mdl-for="settings-button" id="settings-button-tooltip">
+            Settings
+          </div>
+          <button class="mdl-button mdl-js-button mdl-button--icon nav-button" id="support-button">
+            <i class="material-icons">help</i>
+          </button>
+          <div class="mdl-tooltip" data-mdl-for="support-button" id="support-button-tooltip">
+            Support
+          </div>
+          <button class="mdl-button mdl-js-button mdl-button--icon" id="back-button">
+            <i class="material-icons">done</i>
+          </button>
+          <div class="mdl-tooltip" data-mdl-for="back-button" id="back-button-tooltip">
+            Save edits
+          </div>
         </div>
+        <div class="circle grow"></div>
       </header>
-      
+      <div id = "loading-bar" class = "mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
       <main class="mdl-layout__content">
-        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored fixed-button" type="button" id="edit" val="viewing">
-          <i class="material-icons" id="edit-icon">edit</i>
-        </button>
         <div class="page-content">
+          <div class="tab" id="suggest-tab">
+            Please select a due date.<br>
+            
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="suggest-date-selector-div" val="">
+              <select class="mdl-textfield__input" id="suggest-date-selector" name="dates">
+                <option>Today</option>
+                <option>Tomorrow</option>
+                <option>Custom</option>
+              </select>
+            </div>
+            
+            <div id="suggest-datepicker-div" class="mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input" type="date" name="date" id="suggest-datepicker" value="">
+            </div>
+            
+            <div id="suggest-timepicker-div" class="mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input" type="time" id="suggest-timepicker" value="">
+            </div>
+
+            <br>
+            <button id="suggest-submit" class="mdl-button mdl-js-button mdl-button--accent square-button raised-button" type="button" disabled>
+              Submit
+            </button>
+          </div>
+          
           <div class="tab" id="main-tab">
             <ul class="mdl-list">
               <li class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
                   <i class="material-icons mdl-list__item-icon">access_time</i>
-                    <span id="main-date-text">Date Time</span>
+                    <div>
+                      <span id="main-duein-text">Due in</span>
+                      <br>
+                      <span id="main-dueon-text">Due:</span>
+                    </div>
                 </span>
               </li>
               
               <li class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
                   <i class="material-icons mdl-list__item-icon">notifications</i>
-                    <span id="main-date-text">Notifications</span>
+                    <span id="main-notification-text">Notification:</span>
                 </span>
               </li>
               
               <li class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
                   <i class="material-icons mdl-list__item-icon">calendar_today</i>
-                    <button id="g-calendar-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                  <div>
+                    <a id="g-calendar-link" href="https://www.google.com">Google calendar: on</a>
+                    <div id="g-calendar-off">Google calendar: off</div>
+                    <!--button id="g-calendar-button" class="mdl-button mdl-js-button mdl-button--accent square-button">
                       G Calendar
-                    </button>
+                    </button-->
+                  </div>
+                    <!--div class="mdl-tooltip" data-mdl-for="g-calendar-button">Open in google calendar</div-->
                 </span>
               </li>
               
               <li class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
                   <i class="material-icons mdl-list__item-icon">bookmarks</i>
-                    Bookmarks
+                  <i class="no-bookmarks">No bookmarks</i>
+                  <div class="bookmark-list"></div>
                 </span>
-                <span class="bookmark-list"></span>
               </li>
               
             </ul>
@@ -156,32 +609,38 @@
                 </span>
               </li>
               
-              <li class="mdl-list__item" id="notification-list">
-                <span class="mdl-list__item-primary-content">
-                  <i class="material-icons mdl-list__item-icon">notifications</i>
-                    <select class="mdl-textfield__input" id="notification-types">
-                        <option id="notification-types-email">Email</option>
-                        <option id="notification-types-popup">Popup</option>
-                        <option id="notification-types-sms">SMS</option>
-                      </select>
-                      <div id="notification-number-div" class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="number" id="notification-number" value="10">
-                      </div>
-                      <select class="mdl-textfield__input" id="time-types">
-                        <option id="time-types-minutes">Mins</option>
-                        <option id="time-types-hours">Hrs</option>
-                        <option id="time-types-days">Days</option>
-                      </select>
-                </span>
+              <li class="mdl-list__item notification-list">
+                <div id="notification-edit-div">
+                  <span class="mdl-list__item-primary-content">
+                    <i class="material-icons mdl-list__item-icon">notifications</i>
+                    <select class="mdl-textfield__input notification-types" id="notification-types">
+                      <option id="notification-types-Email" value="Email">Email</option>
+                      <option id="notification-types-Popup" value="Popup">Popup</option>
+                      <option id="notification-types-None" value="None">None</option>
+                    </select>
+                    <div id="notification-number-div" class="mdl-textfield mdl-js-textfield notification-number">
+                      <input class="mdl-textfield__input" type="number" id="notification-number" value="10" required>
+                      <span id="notification-number-error" class="mdl-textfield__error notification-error">Please enter a whole number</span>
+                    </div>
+                    <select class="mdl-textfield__input time-types" id="time-types">
+                      <option id="notification-time-types-Mins">Mins</option>
+                      <option id="notification-time-types-Hours">Hours</option>
+                      <option id="notification-time-types-Days">Days</option>
+                    </select>
+                  </span>
+                </div>
               </li>
+              <div class="mdl-tooltip" data-mdl-for="notification-edit-div" id="notification-edit-tooltip">
+                You can't add notifications when you don't have a calendar event.
+              </div>
               
-              <li class="mdl-list__item">
-                <span class="mdl-list__item-primary-content">
+              <li class="mdl-list__item" id="show-g-cal-list">
+                <span class="mdl-list__item-primary-content" id="show-g-calendar-span">
                   <i class="material-icons mdl-list__item-icon">calendar_today</i>
                   Show Google Calendar Event
                 </span>
                 <span class="mdl-list__item-secondary-action">
-                  <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" id="show-g-calendar-switch-label" for="show-g-calendar-switch">
+                  <label class="mdl-switch mdl-js-switch mdl-js--effect" id="show-g-calendar-switch-label" for="show-g-calendar-switch">
                     <input type="checkbox" id="show-g-calendar-switch" class="mdl-switch__input" checked />
                   </label>
                 </span>
@@ -190,11 +649,55 @@
               <li class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
                   <i class="material-icons mdl-list__item-icon">bookmarks</i>
+                  <div id="bookmark-list-container">
+                    <i class="no-bookmarks">No bookmarks</i>
+                    <div class="bookmark-list"></div>
+                    <div id="add-bookmark-div">
+                      <button class="mdl-button add-bookmark-button mdl-js-button mdl-button--accent raised-button" val="" type="button" id="add-bookmark">
+                        <i class="material-icons add-bookmark-icon">add</i>
+                        Add
+                      </button>
+                      <div class="mdl-tooltip" data-mdl-for="add-bookmark" id="add-bookmark-tooltip">Add bookmark</div>
+                    </div>
+                    <div class="mdl-tooltip" data-mdl-for="add-bookmark-div" id="add-bookmark-div-tooltip">You can't have more than 4 bookmarks</div>
+                  </div>
                 </span>
-                <span class="bookmark-list"></span>
-                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" type="button" id="add-bookmark">
-                  <i class="material-icons">add</i>
-                </button>
+              </li>
+              
+            </ul>
+          </div>
+          
+          <div class="tab" id="edit-bookmark-tab">
+            <ul class="mdl-list list-padded">
+              <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-icon">title</i>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="edit-bookmark-name-div">
+                    <input class="mdl-textfield__input load-required" type="text" id="edit-bookmark-name" pattern=".{0,100}">
+                    <label class="mdl-textfield__label" for="edit-bookmark-name">Name</label>
+                    <span class="mdl-textfield__error" id="edit-bookmark-name-error">Must be 1-100 characters</span>
+                  </div>
+                </span>
+              </li>
+              
+              <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-icon">link</i>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="edit-bookmark-url-div">
+                    <input class="mdl-textfield__input load-required" type="text" id="edit-bookmark-url" pattern="^(?:http(s)?:\/\/)[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$">
+                    <label class="mdl-textfield__label" for="edit-bookmark-url">URL</label>
+                    <span class="mdl-textfield__error">Please enter a valid URL</span>
+                  </div>
+                </span>
+              </li>
+              
+              <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-icon">delete</i>
+                  <button id="delete-bookmark-button" class="mdl-button mdl-js-button mdl-button--red raised-button">
+                    Delete
+                  </button>
+                </span>
               </li>
               
             </ul>
@@ -206,44 +709,42 @@
                 <span class="mdl-list__item-primary-content">
                   <i class="material-icons mdl-list__item-icon">access_time</i>
                   <div>
-                    Default:
                     <div class="nested-span">
                       <select class="mdl-textfield__input" id="default-day-types">
                           <option id="default-day-types-same">The same day</option>
-                          <option id="notification-types-next">The next day</option>
-                          <option id="notification-types-first">The first suggestion</option>
-                          <option id="notification-types-custom">Custom</option>
+                          <option id="default-day-types-next">The next day</option>
+                          <option id="default-day-types-first">The first suggestion</option>
+                          <option id="default-day-types-custom">Custom</option>
                         </select>
                       <div id="default-datepicker-div" class="mdl-textfield mdl-js-textfield mdl-datepicker">
                         <input class="mdl-textfield__input" type="date" name="date" id="default-datepicker" value="">
                       </div>
                       <div id="default-timepicker-div" class="mdl-textfield mdl-js-textfield mdl-datepicker">
-                        <input class="mdl-textfield__input" type="time" id="default-timepicker" value="">
+                        <input class="mdl-textfield__input" type="time" id="default-timepicker" value="00:00">
                       </div>
                     </div>
                   </div>
                 </span>
               </li>
               
-              <li class="mdl-list__item sub-list-item" id="notification-list">
+              <li class="mdl-list__item sub-list-item notification-list">
                 <span class="mdl-list__item-primary-content">
                   <i class="material-icons mdl-list__item-icon">notifications</i>
                   <div>
-                    Default:
                     <span class="mdl-list__item-primary-content nested-span">
-                      <select class="mdl-textfield__input" id="notification-types">
-                        <option id="notification-types-email">Email</option>
-                        <option id="notification-types-popup">Popup</option>
-                        <option id="notification-types-sms">SMS</option>
-                        <option id="notification-types-sms">None</option>
+                      <select class="mdl-textfield__input notification-types" id="settings-notification-types">
+                        <option id="settings-notification-types-email">Email</option>
+                        <option id="settings-notification-types-popup">Popup</option>
+                        <option id="settings-notification-types-None">None</option>
                       </select>
-                      <div id="notification-number-div" class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="number" id="notification-number" value="10">
+                      <div class="mdl-textfield mdl-js-textfield notification-number" id="settings-notification-number-div">
+                        <input class="mdl-textfield__input" type="number" id="settings-notification-number" value="10">
+                        <span id="settings-notification-number-error" class="mdl-textfield__error notification-error">Please enter a whole number</span>
                       </div>
-                      <select class="mdl-textfield__input" id="time-types">
-                        <option id="time-types-minutes">Mins</option>
-                        <option id="time-types-hours">Hrs</option>
-                        <option id="time-types-days">Days</option>
+                      <select class="mdl-textfield__input time-types" id="setings-time-types">
+                        <option id="setings-time-types-minutes">Mins</option>
+                        <option id="setings-time-types-hours">Hrs</option>
+                        <option id="setings-time-types-days">Days</option>
                       </select>
                     </span>
                   </div>
@@ -253,39 +754,70 @@
               <li class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
                   <i class="material-icons mdl-list__item-icon">calendar_today</i>
-                  Default Google Calendar Event
+                  Show Google Calendar Event
                 </span>
                 <span class="mdl-list__item-secondary-action padded-secondary-action">
-                  <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" id="show-g-calendar-switch-label" for="show-g-calendar-switch">
-                    <input type="checkbox" id="show-g-calendar-switch" class="mdl-switch__input" checked />
+                  <label class="mdl-switch mdl-js-switch mdl-js--effect" id="default-show-g-calendar-switch-label" for="default-show-g-calendar-switch">
+                    <input type="checkbox" id="default-show-g-calendar-switch" class="mdl-switch__input" checked/>
                   </label>
                 </span>
               </li>
               
-              <li class="mdl-list__item mdl-list__item--three-line">
+              <li class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
-                  <i class="material-icons mdl-list__item-icon">contact_support</i>
-                  <span>Questions? <a href="mailto:support@duedocs.org">Email us!</a></span>
-                    <span class="mdl-list__item-text-body">
-                    If you're going to spam, just use the dev's <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">personal email</a>.
-                  </span>
+                  <i class="material-icons mdl-list__item-icon">brightness_4</i>
+                  Dark mode
+                </span>
+                <span class="mdl-list__item-secondary-action padded-secondary-action">
+                  <label class="mdl-switch mdl-js-switch" id="dark-mode-switch-label" for="dark-mode-switch">
+                    <input type="checkbox" id="dark-mode-switch" class="mdl-switch__input"/>
+                  </label>
                 </span>
               </li>
-              
-              <li class="mdl-list__item mdl-list__item--three-line">
-              <span class="mdl-list__item-primary-content">
-                <i class="material-icons mdl-list__item-icon">attach_money</i>
-                <a href="https://www.patreon.com/">Donate!</a>
-                <span class="mdl-list__item-text-body third-line-list">
-                  Help the dev go to college so he can keep making stuff for you.
-                </span>
-              </span>
-            </li>
               
             </ul>
           </div>
           
+          <div class="tab" id="support-tab">
+            <ul class="mdl-list list-padded">
+              <li class="mdl-list__item mdl-list__item--three-line">
+                <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-icon">contact_support</i>
+                  <span><a href="mailto:support@duedocs.org">Email us!</a></span>
+                    <span class="mdl-list__item-text-body">
+                    If you're going to spam, just use the dev's <a href="https://tinyurl.com/due-dev-mail">personal email</a>.
+                  </span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--three-line">
+                <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-icon">attach_money</i>
+                  <a href="https://www.patreon.com/">Donate!</a>
+                  <span class="mdl-list__item-text-body">
+                    Help the dev go to college so he can keep making stuff for you.
+                  </span>
+                </span>
+              </li>
+              
+              <li class="mdl-list__item mdl-list__item--two-line">
+                <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-icon">feedback</i>
+                  <a href="https://goo.gl/forms/XCdRS2FjKHPVXrju1">Give us feedback!</a>
+                  <span class="mdl-list__item-sub-title">Help us make Due better.</span>
+                </span>
+              </li>
+              
+              <li class="mdl-list__item mdl-list__item--two-line">
+                <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-icon">bug_report</i>
+                  <a href="https://goo.gl/forms/cZriuwQ8M4Vwb4v23">Report a bug</a>
+                  <span class="mdl-list__item-sub-title">Tell us what went wrong.</span>
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
+        <div id="text-width"></div>
       </main>
       
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -294,41 +826,954 @@
       
       <script>
         $(function() {
-          showOnlyTab("settings-tab");
-          let square = new Bookmark("WWWWWWWW", "https://www.google.com", "id");
-          for(var i = 0; i<5; ++i) {
-            addBookmark(square);
+          google.script.run.withSuccessHandler(darkModeLoad).getDarkMode();
+          showOnlyTab("suggest-tab");
+          google.script.run.withSuccessHandler(suggestData).getFirstTime();
+          showLoadingBar(true);
+        });
+        
+        //Suggestions
+        function suggestData(firstTime) {
+          if(firstTime) {
+            showIcons(false);
+            showBackbutton(false);
+            $('#suggest-datepicker-div').hide();
+            setToday();
+            google.script.run.withSuccessHandler(dateSuggest).logDates();
+          } else {
+            showLoadingBar(true);
+            showOnlyTab("main-tab");
+            google.script.run.withSuccessHandler(loadData).withFailureHandler(failedLoadData).loadData();
+            google.script.run.withSuccessHandler(loadDefaults).loadSettings();
+          }
+        }
+        
+        function loadSettings(data) {
+          if(data.dayType != null) {
+            setSuggestDayType(data.dayType);
+            setSuggestDay(data.day, data.time);
+          }
+        }
+        
+        function loadDefaults(data) {
+          setDefaultDayType(data.dayType);
+          setDefaultTime(data.time);
+          setDefaultDay(data.day);
+        }
+        
+        function translateDayType(val) {
+          var ret = val;
+          if(val.includes("same")) {
+            ret = "Today";
+          } else if(val.includes("next")) {
+            ret = "Tomorrow";
+          } else if(val.includes("first")) {
+            ret = 1;
+          } else if(val.includes("Custom")) {
+            ret = "Custom";
+          }
+          return ret;
+        }
+        
+        $('#suggest-submit').click(function() {
+          showLoadingBar(true);
+          var option = $('#suggest-date-selector').val();
+          if(option == "Custom") {
+            option = $('#suggest-datepicker').val();
+          }
+          
+          var time = $('#suggest-timepicker').val();
+          var timeColonInd = time.indexOf(":");
+          if(option.length != 0) {
+            if(time.startsWith("0")) {
+              time = time.substring(1);
+            }
+            if (time.charAt(timeColonInd+1)=='0') {
+              time = time.substring(0, timeColonInd+1)+time.substring(timeColonInd+2);
+            }
+            google.script.run.withSuccessHandler(successSuggestDate).suggestDate(option, time);
+            google.script.run.setFirstTime(false);
+          } else {
+            alert("Please select a custom date");
           }
         });
         
-        //Tab methods
-        function showOnlyTab(id) {
-          $(".tab").each(function() {
-            if(id == $(this).attr("id")) {
-              $(this).show();
-            } else {
-              $(this).hide();
+        function successSuggestDate() {
+          google.script.run.withSuccessHandler(loadDataNew).withFailureHandler(failedLoadData).loadData();
+        }
+        
+        function setToday() {
+          var today = new Date();
+          setSuggestDay(hyphenDate(today), hyphenTime(today));
+        }
+        
+        function setSuggestDay(hyphenDate, hyphenTime) {
+          $('#suggest-datepicker').val(hyphenDate);
+          $('#suggest-timepicker').val(hyphenTime);
+        }
+        
+        function dateSuggest(dates) {
+          for(var x in dates) {
+            createDate(dates[x]);
+          }
+          $('#suggest-submit').removeAttr('disabled');
+          showLoadingBar(false);
+          google.script.run.withSuccessHandler(loadSettings).loadSettings();
+          //setDefault();
+        }
+        
+        function createDate(date) {
+          var dateString = formatDate(date);
+          createUNFDate(dateString);
+        }
+        
+        function createUNFDate(date) {
+          var firstHtml = '<option>';
+          var secondHtml = '</option>';
+          var html = firstHtml+date+secondHtml;
+          
+          var $item = $(html);
+          $('#suggest-date-selector').append($item);
+        }
+        
+        $('#suggest-date-selector').change(function() {
+          var date = $(this).val();
+          if(date == "Custom") {
+            $('#suggest-datepicker-div').fadeIn();
+          } else {
+            $('#suggest-datepicker-div').fadeOut();
+          }
+        });
+        
+        //Preloading (Success)
+        function loadData(data) {
+          loadEditData(data);
+          loadSettingsData(data);
+        }
+        
+        function loadEditData(data) {
+          showOnlyTab("main-tab");
+          
+          loadDate(data.time);
+          loadNotifications(parseInt(data.notificationTime), data.notificationType, data.notificationTimeType);
+          loadCalendar(data.calendarOn);
+          loadBookmarks(data.bookmarks);
+          
+          showIcons(true);
+          showBackbutton(false);
+          showLoadingBar(false);
+        }
+        
+        function loadSettingsData(data) {
+          loadDefaultDay(data);
+        }
+        
+        function loadDefaultDay(data) {
+          var date = $('#default-day-types').val();
+          checkDefaultDayTypes(date);
+          setToday();
+        }
+        
+        function showLoadingBar(on) {
+          on ? $('#loading-bar').fadeIn() : $('#loading-bar').fadeOut();
+        }
+        
+        function loadDataNew(data) {
+          showLoadingBar(true);
+            
+          disableCalendarOn(false);
+          showOnlyTab("main-tab");
+          loadDate(data.time);
+          showIcons(true);
+          loadNotificationsNew();
+          var timeInt = Number(data.time);
+          google.script.run.withSuccessHandler(function() {
+            google.script.run.withSuccessHandler(calendarLinkdoneLoading).getUrl();
+          }).createEvent(timeInt, timeInt+3600000, 0, "None");
+          //showLoadingBar(false);
+        }
+        
+        function calendarLinkdoneLoading(data) {
+          setCalendarLink(data);
+          showLoadingBar(false);
+        }
+        
+        function loadDate(time) {
+          var timeInt = Number(time);
+          var date = new Date(timeInt);
+          //$('#main-duein-text')
+          updateDateOnText(date);
+          updateDateInText(date);
+          date.setDate(date.getDate()-1);
+          updateDatepicker(date);
+          updateTimepicker(date);
+        }
+        
+        function loadCalendar(on) {
+          google.script.run.withSuccessHandler(setCalendarLink).getUrl();
+          var bool = on=="true";
+          disableCalendarOn(bool);
+          checkCalendarSwitch(bool);
+          disableNotificationType(!bool);
+          setNotificationCalendarOn(bool);
+        }
+        
+        function setNotificationCalendarOn(on) {
+          if(!on) {
+            updateNotificationText("", "None");
+            disableNotificationFields(true);
+            setNotificationTypeField("None");
+          }
+        }
+        
+        function loadNotifications(time, type, timeType) {
+          updateNotificationText(time, type, timeType);
+          updateNotificationFields(time, type, timeType);
+          setNotificationType(type);
+        }
+        
+        function loadNotificationsNew() {
+          updateNotificationText(0, "Email", "Min");
+          $('#main-notification-text').text("Notficiation: none");
+          showNotificationTooltip(false);
+        }
+        
+        function failedLoadData() {
+          alert("Failed load data");
+        }
+        
+        function loadBookmarks(bookmarks) {
+          setNumBookmarks(0);
+          if(bookmarks == null) {
+            
+          } else {
+            var bookmarkArr = bookmarks.split("\n");
+            for(var i = 0; i<bookmarkArr.length-1; ++i) {
+              var bookmark = bookmarkArr[i];
+              var url = bookmark.substring(bookmark.indexOf(":")+1, bookmark.indexOf(" "));
+              var name = bookmark.substring(bookmark.indexOf(" ")+1);
+              createBookmark(name, url);
+            }
+          }
+        }
+        
+        //Display
+        function darkModeWithAnim(on) {
+          $('.circle').toggleClass("close");
+          if(on) {
+            $('.circle').addClass("dark");
+          } else {
+            $('.circle').removeClass("dark");
+          }
+          setTimeout(function() {darkMode(on)}, 200);
+        }
+        
+        function darkModeLoad(on) {
+          darkMode(on);
+          $('.circle').hide();
+          $('.circle').addClass("close");
+          setTimeout(function() {$('.circle').show();}, 500);
+        }
+        
+        function darkMode(on) {
+          checkDarkMode(on);
+          if(on == "true") {
+            on = true;
+          } else if(on == "false") {
+            on = false;
+          }
+          if(on) {
+            $('body').addClass("dark");
+            $('i').addClass("dark");
+            $('.mdl-layout__header').addClass("dark");
+            $('input').addClass("dark");
+            $('.mdl-switch').addClass("dark");
+            $('select').addClass("dark");
+            $('button').addClass("dark");
+            $('span').addClass("dark");
+            $('.mdl-progress').addClass("dark");
+          } else {
+            $('body').removeClass("dark");
+            $('i').removeClass("dark");
+            $('.mdl-layout__header').removeClass("dark");
+            $('input').removeClass("dark");
+            $('.mdl-switch').removeClass("dark");
+            $('select').removeClass("dark");
+            $('span').removeClass("dark");
+            $('button').removeClass("dark");
+            $('.mdl-progress').removeClass("dark");
+          }
+        }
+        
+        $('#dark-mode-switch').change(function() {
+          darkModeWithAnim(!getDarkModeOn());
+        });
+        
+        function getDarkModeOn() {
+          return $('#dark-mode-switch-label').is('.is-checked');
+        }
+        
+        //Saving
+        function saveEdits() {
+          saveDate();
+          saveNotifications();
+          saveCalendar();
+          saveBookmarks();
+        }
+        
+        function saveCalendar() {
+          showLoadingBar(true);
+          var on = getCalendarOn();
+          disableCalendarOn(on);
+          if(on) {
+            var dateObj = getDate();
+            var notifType = getNotificationTypeField();
+            var notifTime = parseInt($('#notification-number').val());
+            var notifTimeType = $('#time-types').val();
+            if(notifTimeType.includes("D")) {
+              notifTime *= 24*60;
+            } else if(notifTimeType.includes("H")) {
+              notifTime *= 60;
+            }
+            
+            google.script.run.resetEvent(dateObj.getTime(), dateObj.getTime()+3600000, notifTime, notifType);
+            google.script.run.withSuccessHandler(setCalendarLink).getUrl();
+          }
+          google.script.run.saveCalendar(on);
+          showLoadingBar(false);
+        }
+        
+        function saveDate() {
+          var dateObj = getDate();
+          if(isNaN(dateObj.getHours())){
+            alert("Error: invalid date");
+          } else {
+            updateDateOnText(dateObj);
+            updateDateInText(dateObj)
+            google.script.run.saveDate(dateObj.getTime());
+          }
+        }
+        
+        function getDate() {
+          var dateObj = new Date($('#datepicker').val());
+          var time = $('#timepicker').val();
+          var hr = time.substring(0, 2);
+          var min = time.substring(3, 6);
+          dateObj.setHours(hr, min, 0);
+          
+          dateObj.setDate(dateObj.getDate()+1);
+          return dateObj;
+        }
+        
+        function setSuggestTime(time) {
+          $('#suggest-timepicker').val(time);
+        }
+        
+        function setDefaultDay(val) {
+          $('#default-datepicker').val(val);
+        }
+        
+        function setDefaultTime(time) {
+          $('#default-timepicker').val(time);
+        }
+        
+        function setDefaultDayType(val) {
+          $('#default-day-types').val(val);
+        }
+        
+        function setSuggestDayType(val) {
+          var translated = translateDayType(val);
+          if(typeof translated == "number") {
+            var i = 0;
+            $('#suggest-date-selector > option').each(function() {
+              var text = $(this).text();
+              if(text.includes("/")) i++;
+              if(i == translated) {
+                $('#suggest-date-selector').val(text);
+              }
+            });
+          } else {
+            $('#suggest-date-selector').val(translated);
+            if(translated == "Custom") {
+              $('#suggest-datepicker-div').fadeIn();
+            }
+          }
+        }
+        
+        function saveNotifications() {
+          var type = getNotificationTypeField();
+          var time = $('#notification-number').val();
+          var timeType = $('#time-types').val();
+          
+          if(type == "None") {
+            updateNotificationText(time, type, timeType);
+            if(!getCalendarOn()) {
+              type = getNotificationType();
+            }
+            google.script.run.setNotification(time, type, timeType);
+          } else if(time.length == 0 || time.includes(".")) {
+            $('#notification-number-error').addClass("shake");
+            setTimeout( function(){
+              $('#notification-number-error').removeClass("shake");
+            },300);
+            throw "bad notification input";
+          } else {
+            updateNotificationText(parseInt(time), type, timeType);
+            google.script.run.setNotification(time, type, timeType);
+          }
+        }
+        
+        function saveBookmark(bookmark, button) {
+          var newName = getBookmarkName();
+          var newURL = getBookmarkURL();
+          bookmark.name = newName;
+          bookmark.url = newURL;
+          $('.bookmark-button').each(function() {
+            if($(this).attr('id') == bookmark.id) {
+              $(this).html(getInnerHtml(bookmark));
             }
           });
         }
         
-        $("#show-g-calendar-switch").change(function() {
-          var on = $("#show-g-calendar-switch-label").is('.is-checked');
-          if(on) {
-            $("#notification-list").fadeOut();
+        function saveBookmarks() {
+          exportBookmarks();
+        }
+        
+        //Navigation
+        function showOnlyTab(id) {
+          $(".tab").each(function() {
+            if(id == $(this).attr("id")) {
+              $(this).fadeIn();
+            } else {
+              $(this).hide();
+            }
+          });
+          setStatus(id);
+          setTitle(id);
+          setDoneTooltip(id);
+        }
+        
+        function setDoneTooltip(id) {
+          var $tooltip = $('#back-button-tooltip');
+          if(id.includes("bookmark")) {
+            $tooltip.text("Save bookmark");
+          } else if(id.includes("edit")) {
+            $tooltip.text("Save edits");
+          } else if(id.includes("settings")) {
+            $tooltip.text("Save settings");
+          } else if(id.includes("support")) {
+            $tooltip.text("Done");
+          }
+        }
+        
+        function setTitle(id) {
+          if(id.includes("main")) {
+            setTitleBar("Due");
+          } else if(id.includes("bookmark")) {
+            setTitleBar("Edit bookmark");
+          } else if(id.includes("edit")) {
+            setTitleBar("Edit");
+          } else if(id.includes("setting")) {
+            setTitleBar("Defaults");
+          } else if(id.includes("support")) {
+            setTitleBar("Support");
+          } else if(id.includes("suggest")) {
+            setTitleBar("Suggest a date");
+          }
+        }
+        
+        function setTitleBar(title) {
+          $('#title-text').html(title);
+        }
+        
+        function showIcons(on) {
+          $('.nav-button').each(function() {
+            on ? $(this).fadeIn() : $(this).hide();
+          });
+        }
+        
+        function showBackbutton(on) {
+          on ? $('#back-button').fadeIn() : $('#back-button').hide();
+        }
+        
+        function setStatus(val) {
+          $('#back-button').val(val);
+        }
+        
+        function getStatus() {
+          return $('#back-button').val();
+        }
+        
+        function setNumBookmarks(val) {
+          $('#add-bookmark').val(val);
+          checkNoBookmarks();
+          checkMaxBookmarks();
+        }
+        
+        function checkMaxBookmarks() {
+          if(getNumBookmarks() == 4) {
+            $("#add-bookmark").attr('disabled', 'disabled');
+            $("#add-bookmark-tooltip").hide();
+            $('#add-bookmark-div-tooltip').show();
           } else {
-            $("#notification-list").delay(300).fadeIn();
+            $("#add-bookmark-tooltip").show();
+            $('#add-bookmark').removeAttr('disabled');
+            $('#add-bookmark-div-tooltip').hide();
+          }
+        }
+        
+        function incrNumBookmarks(i) {
+          setNumBookmarks(getNumBookmarks()+i);
+        }
+        
+        function getNumBookmarks() {
+          return parseInt($('#add-bookmark').val());
+        }
+        
+        $('#back-button').click(function() {
+          backClick();
+        });
+        
+        function setBackButtonClick(bookmark, button) {
+          $('#back-button').off('click');
+          $('#back-button').click(function() {
+            backClick(bookmark, button);
+          });
+        }
+        
+        function setDeleteClick(bookmark, button) {
+          $('#delete-bookmark-button').off('click');
+          $('#delete-bookmark-button').click(function() {
+            deleteClick(bookmark, button);
+          });
+        }
+        
+        function deleteClick(bookmark, button) {
+          deleteBookmark(bookmark);
+          showOnlyTab("edit-tab");
+        }
+        
+        function backClick(bookmark, button) {
+          try {
+            if(getStatus() == "edit-bookmark-tab") {
+              saveBookmark(bookmark, button);
+              showOnlyTab("edit-tab");
+            } else {
+              if(getStatus() == "edit-tab") {
+                saveEdits();
+              } else if(getStatus() == "settings-tab") {
+                saveSettings();
+              }
+              showBackbutton(false);
+              showIcons(true);
+              showOnlyTab("main-tab");
+            }
+          } catch(e) {
+            
+          }
+        }
+        
+        $('.nav-button').click(function() {
+          var id = $(this).attr('id');
+          showIcons(false);
+          showBackbutton(true);
+          if(id == "edit-button") {
+            showOnlyTab("edit-tab");
+          } else if(id == "settings-button") {
+            showOnlyTab("settings-tab");
+          } else if(id == "support-button") {
+            showOnlyTab("support-tab");
           }
         });
         
+        function saveSettings() {
+          saveDefDay();
+          saveDefCalendar();
+          saveDefNotification();
+          saveDarkMode();
+        }
+        
+        function saveDefNotification() {
+          var type = getDefNotifType();
+          var num = parseInt(getDefNotifNum());
+          var timeType = getDefTimeType();
+          if(getDefCalendarOn()) {
+            checkTextField($('#settings-notification-number-div'));
+          } else {
+            type = getDefaultNotificationType();
+          }
+        }
+        
+        function saveDefDay() {
+          var time = getDefTime();
+          var dayType = getDefDayType();
+          var day = getDefDay();
+          google.script.run.saveDefDay(dayType, time, day);
+        }
+        
+        function saveDefCalendar() {
+          getDefCalendarOn();
+        }
+        
+        function saveDarkMode() {
+          google.script.run.saveDarkModeOn(getDarkModeOn());
+        }
+        
+        //Update methods
+        function updateDateOnText(dateObj) {
+          var html = 'Due: <br><b>' + dateText(dateObj) + '</b> at <b>' + timeText(dateObj) + '</b>';
+          $('#main-dueon-text').html(html);
+        }
+        
+        function updateDateInText(dateObj){
+          var html = "";
+          
+          var fromToday = daysFromToday(dateObj);
+          var days = fromToday.days+1;
+          var hours = fromToday.hours;
+          var minutes = fromToday.minutes;
+          var over = fromToday.over;
+          
+          var string = "";
+          
+          var day = "days";
+          var hour = "hrs";
+          var minute = "mins";
+          
+          if(days == 1){day = "day";}
+          if(hours == 1){hour = "hr";}
+          if(minutes == 1){minute = "min";}
+          
+          if(days != 0){string += days + " " + day + " ";}
+          if(hours != 0){string += hours + " " + hour + " ";}
+          if(minutes != 0){string += minutes + " " + minute + " ";}
+          
+          if(days==0 && hours==0 && minutes==0) {
+            $('#main-duein-text').addClass("red");
+            html = "<b>Due now!<b>"
+          } else if (over) {
+            $('#main-duein-text').addClass("red");
+            html = "<b>" + string + "overdue!<b>";
+          } else {
+            $('#main-duein-text').removeClass("red");
+            html = "Due in:<br><b>" + string + "<b>";
+          }
+          
+          $('#main-duein-text').html(html);
+        }
+        
+        function checkCalendarSwitch(on) {
+          if(on) {
+            $('#show-g-calendar-switch-label')[0].MaterialSwitch.on();
+          } else {
+            $('#show-g-calendar-switch-label')[0].MaterialSwitch.off();
+          }
+        }
+        
+        function checkDarkMode(on) {
+          if(on == "true") {
+            on = true;
+          } else if(on == "false") {
+            on = false;
+          }
+          if(on) {
+            $('#dark-mode-switch-label')[0].MaterialSwitch.on();
+          } else {
+            $('#dark-mode-switch-label')[0].MaterialSwitch.off();
+          }
+        }
+        
+        function disableCalendarOn(on) {
+          if(!on) {
+            $('#g-calendar-off').show();
+            $('#g-calendar-link').hide();
+          } else {
+            $('#g-calendar-off').hide();
+            $('#g-calendar-link').show();
+          }
+        }
+        
+        function setCalendarLink(link) {
+          $("#g-calendar-link").attr('href', link);
+        }
+        
+        function getCalendarLink() {
+          return $("#g-calendar-link").attr('href');
+        }
+        
+        function updateNotificationFields(time, type, timeType) {
+          $('#notification-number').val(time);
+          $('option').each(function() {
+            var id = $(this).attr('id');
+            if(id != undefined && id.includes("notification") && !id.includes("setting")) {
+              if(id.includes(timeType) || id.includes(type)) {
+                $(this).attr('selected', '');
+              }
+            }
+          });
+          if(type == "None") disableNotificationFields(true);
+        }
+        
+        function updateDatepicker(dateObj) {
+          $('#datepicker').val(hyphenDate(dateObj));
+        }
+        
+        function updateTimepicker(dateObj) {
+          $('#timepicker').val(hyphenTime(dateObj));
+        }
+        
+        function showNotificationTooltip(on) {
+          on ? $('#notification-edit-tooltip').show() : $('#notification-edit-tooltip').hide();
+        }
+        
+        function updateNotificationText(time, type, timeType) {
+          if(type == "None") {
+            $('#main-notification-text').text("Notification: none");
+          } else {
+            timeType = time == 1 ? timeType.substring(0, timeType.length-1) : timeType;
+            $('#main-notification-text').text("Notification: " + time + " " + timeType + " by " + type);
+          }
+        }
+        
+        function checkNoBookmarks() {
+          showNoBookmarks(getNumBookmarks() == "0");
+        }
+        
+        $('#add-bookmark').click(function() {
+          if(getNumBookmarks() < 4) {
+            createDefaultBookmark();
+            checkNoBookmarks();
+          } else {
+            
+          }
+        });
+        
+        function showNoBookmarks(on) {
+          on ? $('.no-bookmarks').show() : $('.no-bookmarks').hide();
+        }
+        
+        //Other
+        function getCalendarOn() {
+          return $("#show-g-calendar-switch-label").is('.is-checked');
+        }
+        
+        function getDefCalendarOn() {
+          return $("#default-show-g-calendar-switch-label").is('.is-checked');
+        }
+        
+        function getDefDayType() {
+          return $('#default-day-types').val();
+        }
+        
+        function getDefDay() {
+          return $('#default-datepicker').val();
+        }
+        
+        function getDefTime() {
+          return $('#default-timepicker').val();
+        }
+        
+        function getBookmarkName() {
+          checkTextField($('#edit-bookmark-name-div'));
+          return $('#edit-bookmark-name').val();
+        }
+        
+        function getBookmarkURL() {
+          checkTextField($('#edit-bookmark-url-div'));
+          return $('#edit-bookmark-url').val();
+        }
+        
+        function getDefNotifNum() {
+          return $('#settings-notification-number').val();
+        }
+        
+        function getDefNotifType() {
+          return $('#settings-notification-types').val();
+        }
+        
+        function getDefTimeType() {
+          return $('#setings-time-types').val();
+        }
+        
+        function clearTextfieldError($div) {
+          $div.removeClass("is-invalid");
+        }
+        
+        function checkTextField(field) {
+          var id = "#" + $(field).attr('id');
+          var inputId = id + " > input";
+          if($(inputId).is(':invalid')) {
+            var errorId = id + " > span";
+            $(errorId).addClass("shake");
+            setTimeout( function(){
+              $(errorId).removeClass("shake");
+            },500);
+            throw "bad field";
+          }
+        }
+        
+        function readyRequired() {
+          $('.load-required').each(function() {
+            $(this).attr('required', true);
+          });
+          $('#edit-bookmark-name-div').addClass("is-dirty");
+          $('#edit-bookmark-url-div').addClass("is-dirty");
+        }
+        
+        $("#show-g-calendar-switch").change(function() {
+          var on = getCalendarOn();
+          disableNotificationType(on);
+          changeNone(on);
+        });
+        
+        $('#notification-types').change(function() {
+          if(getNotificationTypeField() == "None") {
+            changeNone(true);
+          } else {
+            disableNotificationFields(false);
+          }
+        });
+        
+        function notificationNumberInvalid() {
+          alert("Notification number invalid");
+        }
+        
+        function changeNone(on) {
+          disableNotificationFields(on);
+          if(on) {
+            var current = getNotificationTypeField();
+            setNotificationType(current);
+            setNotificationTypeField("None");
+          } else {
+            setNotificationTypeField(getNotificationType());
+          }
+        }
+        
+        function getNotificationTypeField() {
+          return $('#notification-types').val();
+        }
+        
+        function setNotificationTypeField(val) {
+          $('#notification-types').val(val);
+        }
+        
+        function getNotificationType() {
+          return $('#show-g-calendar-switch-label').val();
+        }
+        
+        function setNotificationType(name) {
+          $('#show-g-calendar-switch-label').val(name);
+        }
+        
+        function disableNotificationFields(on) {
+          if(on) {
+            $('#notification-number').attr('disabled', 'disabled');
+            $('#notification-number-error').attr('disabled', 'disabled');
+            $('#time-types').attr('disabled', 'disabled');
+          } else {
+            $('#notification-number').removeAttr('disabled');
+            $('#notification-number-error').removeAttr('disabled');
+            $('#time-types').removeAttr('disabled');
+          }
+        }
+        
+        function disableNotificationType(on) {
+          showNotificationTooltip(on);
+          on ? $('#notification-types').attr('disabled', '') : $('#notification-types').removeAttr('disabled');
+        }
+        
         $('#default-day-types').change(function() {
           var date = $(this).val();
+          checkDefaultDayTypes(date);
+      	});
+        
+        function checkDefaultDayTypes(date) {
           if(date == "Custom") {
             $('#default-datepicker-div').fadeIn();
           } else {
             $('#default-datepicker-div').fadeOut();
           }
-      	});
+        }
+        
+        function showDefaultDatepicker(on) {
+          on ? $('#default-datepicker-div').fadeIn() : $('#default-datepicker-div').fadeOut();
+        }
+        
+        //Settings
+        $('#settings-notification-types').change(function() {
+          if(getDefaultNotificationTypeField() == "None") {
+            disableDefNumAndType(true);
+          } else {
+            disableDefNumAndType(false);
+          }
+        });
+        
+        function getDefaultNotificationTypeField() {
+          return $('#settings-notification-types').val();
+        }
+        
+        function changeDefaultNone(on) {
+          disableDefaultNotificationFields(on);
+          if(on) {
+            var current = getDefaultNotificationTypeField();
+            alert(current);
+            setDefaultNotificationType(current);
+            setDefaultNotificationTypeField("None");
+          } else {
+            setDefaultNotificationTypeField(getDefaultNotificationType());
+          }
+        }
+        
+        function disableDefaultNotificationFields(on) {
+          disableDefNumAndType(on);
+          if(on) {
+            $('#settings-notification-types').attr('disabled', 'disabled');
+          } else {
+            $('#settings-notification-types').removeAttr('disabled');
+          }
+        }
+        
+        function disableDefNumAndType(on) {
+          if(on) {
+            $('#settings-notification-number').attr('disabled', 'disabled');
+            $('#notification-number-error').attr('disabled', 'disabled');
+            $('#setings-time-types').attr('disabled', 'disabled');
+          } else {
+            $('#settings-notification-number').removeAttr('disabled');
+            $('#notification-number-error').removeAttr('disabled');
+            $('#setings-time-types').removeAttr('disabled');
+          }
+        }
+        
+        function setDefaultNotificationType(val) {
+          $('#default-show-g-calendar-switch-label').val(val);
+        }
+        
+        function getDefaultNotificationType() {
+          return $('#default-show-g-calendar-switch-label').val();
+        }
+        
+        function setDefaultNotificationTypeField(val) {
+          $('#settings-notification-types').val(val);
+        }
+        
+        $('#default-show-g-calendar-switch').change(function() {
+          var on = getDefaultCalendarOn();
+          disableDefaultNotificationType(on);
+          changeDefaultNone(on);
+          if(getDefaultNotificationTypeField() == "None") {
+            disableDefNumAndType(true);
+          }
+        });
+        
+        function getDefaultCalendarOn() {
+          return $("#default-show-g-calendar-switch-label").is('.is-checked');
+        }
+        
+        function disableDefaultNotificationType(on) {
+          //showNotificationTooltip(on);
+          on ? $('#default-notification-types').attr('disabled', '') : $('#default-notification-types').removeAttr('disabled');
+        }
         
         //Bookmark methods
         class Bookmark {
@@ -352,33 +1797,305 @@
           return "http://s2.googleusercontent.com/s2/favicons?domain_url=" + bookmark.url;
         }
         
+        function getInnerHtml(bookmark) {
+          var first = '<img class="mdl-chip__contact" src="';
+          var second = '">';
+          var shortName = bookmark.name;
+          var shortened = false;
+          if(shortName.includes("<script>") || shortName.includes("onClick")) {
+            shortName = "Stop hacking";
+            bookmark.name = shortName;
+            prepareBookmarkTab(bookmark);
+          }
+          while(getTextWidth(shortName.toUpperCase()) > 120) {
+            shortName = shortName.substring(0, shortName.length-1);
+            shortened = true;
+          }
+          if(shortened) shortName += "...";
+          return first + getPhotoUrl(bookmark) + second + shortName;
+        }
+        
         function getHtml(bookmark) {
-          var first = '<button class="mdl-button mdl-js-button mdl-button--raised bookmark-button text-left text-center" val="" type="button" id="';
-          var second = '"><img class="mdl-chip__contact" src="';
+          var dark = "";
+          if(getDarkModeOn()) {
+            dark = " dark ";
+          }
+          var first = '<button class="mdl-button mdl-js-button bookmark-button text-left text-center';
+          var second = '" val="" type="button" id="';
           var third = '">';
           var fourth = '</button>';
           var shortName = bookmark.name;
-          if(shortName.length>6) {
-            shortName = shortName.substring(0, 5) + "...";
-          }
-          return first + bookmark.id + second + getPhotoUrl(bookmark) + third + shortName + fourth;
+          return first + dark + second + bookmark.id + third + getInnerHtml(bookmark) + fourth;
         }
         
         function createButton(bookmark) {
           var $button = $(getHtml(bookmark));
-          $button.click(function() {bookmarkClick(bookmark);});
+          $button.click(function() {bookmarkClick(bookmark, $button);});
           return $button;
         }
         
+        function tooltipHtml(bookmark) {
+          var first = '<div class="mdl-tooltip bookmark-tooltip" data-mdl-for="';
+          var second = '">Edit bookmark</div>';
+          return first + bookmark.id + second;
+        }
+        
         function addBookmark(bookmark) {
+          incrNumBookmarks(1);
           $('.bookmark-list').append(createButton(bookmark));
         }
         
-        function bookmarkClick(element) {
-          var link = element.url;
-          window.open(link);
+        function bookmarkClick(bookmark, button) {
+          var status = getStatus();
+          if(status == "main-tab") {
+            var link = bookmark.url;
+            window.open(link);
+          } else {
+            clearBookmarkErrors();
+            showOnlyTab("edit-bookmark-tab");
+            prepareBookmarkTab(bookmark);
+            setBackButtonClick(bookmark, button);
+            setDeleteClick(bookmark, button);
+            setStatus("edit-bookmark-tab");
+          }
         }
         
+        function exportBookmarks() {
+          var bookmarks = "";
+          var ids = [];
+          var i = 0;
+          //<img class="mdl-chip__contact" src="http://s2.googleusercontent.com/s2/favicons?domain_url=https://www.google.com">Name
+          $('.bookmark-button').each(function() {
+            var id = $(this).attr('id');
+            if(!ids.includes(id)) {
+              ids.push(id);
+              var html = $(this).html();
+              var url = html.substring(html.indexOf("url=")+4, html.indexOf('">'));
+              var name = html.substr(html.indexOf('">')+2);
+              var ret = i + ":"+url+" " + name;
+              bookmarks += ret + "\n";
+              i++;
+            }
+          });
+          google.script.run.saveBookmarks(bookmarks);
+          
+        }
+        
+        function clearBookmarkErrors() {
+          clearTextfieldError($('#edit-bookmark-name-div'));
+          clearTextfieldError($('#edit-bookmark-url-div'));
+        }
+        
+        function prepareBookmarkTab(bookmark) {
+          $("#edit-bookmark-name").val(bookmark.name);
+          $("#edit-bookmark-url").val(bookmark.url);
+          readyRequired();
+        }
+        
+        function createBookmark(name, url) {
+          var d = new Date();
+          var time = d.getTime();
+          var id = "bookmark" + time;
+          var book = new Bookmark(name, url, id);
+          addBookmark(book);
+        }
+        
+        function createDefaultBookmark() {
+          var d = new Date();
+          var time = d.getTime();
+          var id = "bookmark" + time;
+          var book = new Bookmark("Name", "https://www.google.com", id);
+          addBookmark(book);
+        }
+        
+        function deleteBookmark(bookmark) {
+          $('.bookmark-button').each(function() {
+            if(bookmark.id == $(this).attr('id')) {
+              $(this).remove();
+            }
+          });
+          incrNumBookmarks(-1);
+          checkNoBookmarks();
+        }
+        
+        //Date formatting
+        function formatDate(date) {
+          var delimeter = "/"
+          if(date.indexOf('-') != -1) {
+            delimeter = "-";
+          }
+          
+          var copy = date.substring(0);
+          var first = parseInt(copy.substring(0, copy.indexOf(delimeter)));
+          copy = copy.substring(copy.indexOf(delimeter)+1);
+          var second = parseInt(copy.substring(0, copy.indexOf(delimeter)));
+          copy = copy.substring(copy.indexOf(delimeter)+1);
+          var year = parseInt(copy);
+          
+          var day = -1;
+          var month = -1;
+          if(first > 12 && second > 12) {
+            return false;
+          } else if (first > 12) {
+            day = first;
+            month = second;
+          } else if (second > 12) {
+            month = first;
+            day = second;
+          } else {
+            day = second;
+            month = first;
+          }
+          
+          return month + "/" + day + "/" + year;
+        }
+        
+        function timeText(dateObj){
+          var hour = dateObj.getHours();
+          var min = dateObj.getMinutes();
+          var am = 'am'
+          if(hour >= 12){am = 'pm'; hour -= 12;}
+          if(hour == 0) {hour = 12;}
+          if(min < 10) {min = '0' + min;}
+          return hour + ':' + min + ' ' + am;
+        }
+        
+        function hyphenDate(dateObj){
+          var y = dateObj.getFullYear();
+          var m = dateObj.getMonth() + 1;
+          var d = dateObj.getDate();
+          if(m < 10) {m = '0'+m}
+          if(d < 10) {d = '0'+d}
+          
+          return y + '-' + m + '-' + d;
+        }
+        
+        function hyphenTime(today) {
+          var hours = today.getHours();
+          var mins = today.getMinutes();
+          hours = hours<10 ? "0"+hours : hours;
+          mins = mins<10 ? "0"+mins : mins;
+          return hours+":"+mins;
+        }
+        
+        function isToday(input){
+          var todaysDate = new Date();
+          var inputDate = new Date(input.getTime());
+          inputDate.setDate(input.getDate());
+          return inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0);
+        }
+        
+        function isTomorrow(input){
+          var tomorrowDate = new Date();
+          tomorrowDate.setDate(tomorrowDate.getDate()+1);
+          var inputDate = new Date(input.getTime());
+          inputDate.setDate(input.getDate());
+          return inputDate.setHours(0,0,0,0) == tomorrowDate.setHours(0,0,0,0);
+        }
+        
+        function daysFromToday(dateOb){
+          
+          var dateObj = new Date(dateOb.getTime());
+          
+          var today = new Date().getTime();
+          var future = dateObj.getTime();
+          
+          var delta = Math.abs(future - today) / 1000;
+          
+          // calculate (and subtract) whole days
+          var days = Math.floor(delta / 86400)-1;
+          delta -= (days+1) * 86400;
+          
+          // calculate (and subtract) whole hours
+          var hours = Math.floor(delta / 3600) % 24;
+          delta -= hours * 3600;
+          
+          // calculate (and subtract) whole minutes
+          var minutes = Math.floor(delta / 60) % 60;
+          delta -= minutes * 60;
+          
+          var over = false;
+          if(today > dateObj){
+            over = true;
+          }
+          
+          return {
+            over: over,
+            days: days,
+            hours: hours,
+            minutes: minutes
+          }
+        }
+        
+        function hyphenDate(dateObj){
+          var y = dateObj.getFullYear();
+          var m = dateObj.getMonth() + 1;
+          var d = dateObj.getDate()+1;
+          if(m < 10) {m = '0'+m}
+          if(d < 10) {d = '0'+d}
+          
+          return y + '-' + m + '-' + d;
+        }
+        
+        function hyphenTime(dateObj){
+          var hrs = dateObj.getHours();
+          var mins = dateObj.getMinutes();
+          if(hrs < 10) {hrs = '0' + hrs;}
+          if(mins < 10) {mins = '0' + mins;}
+          return hrs + ':' + mins;
+        }
+        
+        function dateText(date) {
+          if(isToday(date)){
+            return 'Today';
+          } else if(isTomorrow(date)){
+            return 'Tomorrow';
+          }
+          
+          var monthNames = [
+            "Jan", "Feb", "Mar",
+            "Apr", "May", "Jun", "Jul",
+            "Aug", "Sep", "Oct",
+            "Nov", "Dec"];
+          
+          var day = date.getDate();
+          var monthIndex = date.getMonth();
+          if(day > 31) {
+            day = 1;
+            monthIndex+=1;
+          }
+          var year = date.getFullYear();
+          //console.log("Yee");
+          return day + ' ' + monthNames[monthIndex] + ' ' + year;
+        }
+        
+        //Stack Overflow
+        jQuery.extend(jQuery.expr[':'], {
+          invalid : function(elem, index, match){
+            var invalids = document.querySelectorAll(':invalid'),
+              result = false,
+              len = invalids.length;
+            
+            if (len) {
+              for (var i=0; i<len; i++) {
+                if (elem === invalids[i]) {
+                  result = true;
+                  break;
+                }
+              }
+            }
+            return result;
+          }
+        });
+        
+        function getTextWidth(text) {
+          var fontSize = 12;
+          var test = document.getElementById("text-width");
+          test.innerHTML = text;
+          test.style.fontSize = fontSize;
+          var width = test.clientWidth + 1;
+          return width;
+        }
       </script>
       
     </div>
