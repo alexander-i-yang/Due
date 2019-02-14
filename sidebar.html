@@ -447,6 +447,10 @@
         color:#9e9e9e;
       }
       
+      .no-bookmarks.dark {
+        color:#90a4ae;
+      }
+      
       #default-day-types {
         width:188px;
       }
@@ -852,6 +856,7 @@
           if(data.dayType != null) {
             setSuggestDayType(data.dayType);
             setSuggestDay(data.day, data.time);
+            loadDefaults(data);
           }
         }
         
@@ -859,6 +864,9 @@
           setDefaultDayType(data.dayType);
           setDefaultTime(data.time);
           setDefaultDay(data.day);
+          setDefaultNotification(data.notifType, data.notifTime, data.notifTimeType);
+          if(data.calendarOn == "false") changeDefaultNone(true);
+          setDefaultCalendarOn(data.calendarOn == "true");
         }
         
         function translateDayType(val) {
@@ -981,16 +989,30 @@
         function loadDataNew(data) {
           showLoadingBar(true);
             
-          disableCalendarOn(false);
           showOnlyTab("main-tab");
           loadDate(data.time);
           showIcons(true);
-          loadNotificationsNew();
+          //loadNotificationsNew();
           var timeInt = Number(data.time);
-          google.script.run.withSuccessHandler(function() {
-            google.script.run.withSuccessHandler(calendarLinkdoneLoading).getUrl();
-          }).createEvent(timeInt, timeInt+3600000, 0, "None");
-          //showLoadingBar(false);
+          
+          disableCalendarOn(getDefCalendarOn());
+          checkCalendarSwitch(getDefCalendarOn());
+          if(getDefCalendarOn()) {
+            var defNotifType = getDefNotifType();
+            var defNotifTimeType = getDefTimeType();
+            var num = parseInt(getDefNotifNum());
+            
+            updateNotificationText(num, defNotifType, defNotifTimeType);
+            num = translateMin(defNotifTimeType, num);
+            
+            google.script.run.withSuccessHandler(function() {
+                google.script.run.withSuccessHandler(calendarLinkdoneLoading).getUrl();
+            }).createEvent(timeInt, timeInt+3600000, num, defNotifType);
+          } else {
+            setNotificationCalendarOn();
+            setNotificationType(getDefaultNotificationType());
+          }
+          showLoadingBar(false);
         }
         
         function calendarLinkdoneLoading(data) {
@@ -1121,6 +1143,15 @@
           saveBookmarks();
         }
         
+        function translateMin(notifTimeType, notifTime) {
+          if(notifTimeType.includes("D")) {
+            notifTime *= 24*60;
+          } else if(notifTimeType.includes("H")) {
+            notifTime *= 60;
+          }
+          return notifTime;
+        }
+        
         function saveCalendar() {
           showLoadingBar(true);
           var on = getCalendarOn();
@@ -1130,12 +1161,7 @@
             var notifType = getNotificationTypeField();
             var notifTime = parseInt($('#notification-number').val());
             var notifTimeType = $('#time-types').val();
-            if(notifTimeType.includes("D")) {
-              notifTime *= 24*60;
-            } else if(notifTimeType.includes("H")) {
-              notifTime *= 60;
-            }
-            
+            notifTime = translateMin(notifTimeType, notifTime);
             google.script.run.resetEvent(dateObj.getTime(), dateObj.getTime()+3600000, notifTime, notifType);
             google.script.run.withSuccessHandler(setCalendarLink).getUrl();
           }
@@ -1402,6 +1428,7 @@
           } else {
             type = getDefaultNotificationType();
           }
+          google.script.run.saveDefNotification(type, num, timeType);
         }
         
         function saveDefDay() {
@@ -1412,7 +1439,8 @@
         }
         
         function saveDefCalendar() {
-          getDefCalendarOn();
+          var on = getDefCalendarOn();
+          google.script.run.saveDefCalendarOn(on);
         }
         
         function saveDarkMode() {
@@ -1502,6 +1530,7 @@
         }
         
         function updateNotificationFields(time, type, timeType) {
+          time = time.substring(0, time.indexOf("."));
           $('#notification-number').val(time);
           $('option').each(function() {
             var id = $(this).attr('id');
@@ -1712,11 +1741,33 @@
           return $('#settings-notification-types').val();
         }
         
+        function setDefaultNotification(type, time, timeType) {
+          setDefNotifType(type);
+          setDefNotifTime(time);
+          setDefNotifTimeType(timeType);
+          if(type == "None") {
+            disableDefNumAndType(true);
+          }
+          updateNotificationFields(time, type, timeType)
+        }
+        
+        function setDefNotifTime(val) {
+          val = val.substring(0, val.indexOf("."));
+          $('#settings-notification-number').val(val);
+        }
+        
+        function setDefNotifType(val) {
+          $('#settings-notification-types').val(val);
+        }
+        
+        function setDefNotifTimeType(val) {
+          $('#setings-time-types').val(val);
+        }
+        
         function changeDefaultNone(on) {
           disableDefaultNotificationFields(on);
           if(on) {
             var current = getDefaultNotificationTypeField();
-            alert(current);
             setDefaultNotificationType(current);
             setDefaultNotificationTypeField("None");
           } else {
@@ -1765,6 +1816,14 @@
             disableDefNumAndType(true);
           }
         });
+        
+        function setDefaultCalendarOn(on) {
+          if(on) {
+            $('#default-show-g-calendar-switch-label')[0].MaterialSwitch.on();
+          } else {
+            $('#default-show-g-calendar-switch-label')[0].MaterialSwitch.off();
+          }
+        }
         
         function getDefaultCalendarOn() {
           return $("#default-show-g-calendar-switch-label").is('.is-checked');
