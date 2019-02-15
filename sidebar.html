@@ -224,7 +224,6 @@
       .mdl-button--red.dark:active {
         background-color:red;
         border-color:red;
-        /*border-color:#c62828;*/
         color:white;
       }
       
@@ -299,8 +298,34 @@
         margin-top:-3px;
       }
       
+      .mdl-textfield--floating-label .mdl-textfield__input {
+        width:auto;
+      }
+      
       .add-bookmark-icon.dark {
         color:#7986cb;
+      }
+      
+      .mdl-textfield--floating-label .mdl-textfield__label.dark:after {
+        content: '';
+        background: #3b89b0;
+      }
+      
+      .mdl-textfield--floating-label.is-invalid .mdl-textfield__label.dark:after {
+        content: '';
+        background:red;
+      }
+      
+      .mdl-textfield--floating-label .mdl-textfield__input {
+        overflow:visible;
+      }
+      
+      .mdl-textfield--floating-label.show-underline {
+        width:auto;
+      }
+      
+      .floating-label-text {
+        margin-left:4px;
       }
       
       select.time-types {
@@ -334,10 +359,6 @@
       
       .mdl-textfield__input.dark:invalid {
         border-bottom: 1px solid red;
-      }
-      
-      .mdl-textfield__label {
-        margin-left:4px;
       }
       
       .mdl-textfield__input.dark + .mdl-textfield__label {
@@ -742,9 +763,9 @@
               <li class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
                   <i class="material-icons mdl-list__item-icon">title</i>
-                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="edit-bookmark-name-div">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label show-underline" id="edit-bookmark-name-div">
                     <input class="mdl-textfield__input load-required" type="text" id="edit-bookmark-name" pattern=".{0,100}">
-                    <label class="mdl-textfield__label" for="edit-bookmark-name">Name</label>
+                    <label class="mdl-textfield__label" for="edit-bookmark-name"><label class="floating-label-text">Name</label></label>
                     <span class="mdl-textfield__error" id="edit-bookmark-name-error">Must be 1-100 characters</span>
                   </div>
                 </span>
@@ -755,7 +776,7 @@
                   <i class="material-icons mdl-list__item-icon">link</i>
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="edit-bookmark-url-div">
                     <input class="mdl-textfield__input load-required" type="text" id="edit-bookmark-url" pattern="^(?:http(s)?:\/\/)[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$">
-                    <label class="mdl-textfield__label" for="edit-bookmark-url">URL</label>
+                    <label class="mdl-textfield__label" for="edit-bookmark-url"><label class="floating-label-text">URL</label></label>
                     <span class="mdl-textfield__error">Please enter a valid URL</span>
                   </div>
                 </span>
@@ -1180,6 +1201,7 @@
             $('button').addClass("dark");
             $('span').addClass("dark");
             $('.mdl-progress').addClass("dark");
+            $('.mdl-textfield__label').addClass("dark");
           } else {
             $('body').removeClass("dark");
             $('i').removeClass("dark");
@@ -1190,6 +1212,7 @@
             $('span').removeClass("dark");
             $('button').removeClass("dark");
             $('.mdl-progress').removeClass("dark");
+            $('.mdl-textfield__label').removeClass("dark");
           }
         }
         
