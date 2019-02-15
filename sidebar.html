@@ -14,25 +14,74 @@
         font-family: 'Roboto';
       }
       
+      body, div {
+        --bg-dark:#263238;
+      }
+      
+      .dark {
+        --text: #90a4ae;
+        --text-fill: #37474f;
+        
+        --highlight: #cfd8dc;
+        
+        --disabled-fill: #3a454b;
+        --disabled-text: #5d696f;
+        
+        --accent: #7986cb;
+        --secondary-accent: #3b89b0;
+        
+        --text-error: #ef9a9a;
+      }
+      
+      .mdl-button--accent {
+        --hover-bg: #e3f2fd;
+        --border: #bbdefb;
+        
+        --disabled-bg: #9e9e9e;
+      }
+      
+      .mdl-button {
+        --disabled: #e0e0e0;
+      }
+      
+      .mdl-switch {
+        --track: #546e7a;
+      }
+      
+      .mdl-button--red {
+        --hover-text-dark: #e1e7ea;
+        --hover-bg: #ffebee;
+        
+        --border-hover: #ffcdd2;
+        
+        --bg-active: #ffdce0;
+        --border-active: #f7b3b6;
+      }
+      
+      .bookmark-button {
+        --active-border: #cfcfcf;
+        --dark-border-active: #78909c;
+      }
+      
       body.dark {
-        background:#263238;
-        color:#90a4ae;
+        background:var(--bg-dark);
+        color:var(--text);
       }
       
       .material-icons.dark {
-        color:#cfd8dc;
+        color:var(--highlight);
       }
       
       span.dark {
-        color:#90a4ae;
+        color:var(--text);
       }
       
       .mdl-layout-title.dark {
-        color:#cfd8dc;
+        color:var(--highlight);
       }
       
       .mdl-layout__header.dark {
-        background: #37474f;
+        background:var(--text-fill);
         box-shadow:none;
       }
       
@@ -41,13 +90,13 @@
       }
       
       input.dark {
-        background:#37474f;
-        color:#90a4ae;
+        background:var(--text-fill);
+        color:var(--text);
       }
       
       select.dark {
-        background: #37474f;
-        color:#90a4ae;
+        background:var(--text-fill);
+        color:var(--text);
       }
       
       span.red {
@@ -59,13 +108,13 @@
       }
       
       input[disabled].dark {
-        background:#3a454b;
-        color:#5d696f;
+        background:var(--disabled-fill);
+        color:var(--disabled-text);
       }
       
       select[disabled].dark {
-        background:	#3a454b;
-        color:#5d696f;
+        background:	var(--disabled-fill);
+        color:var(--disabled-text);
       }
       
       .mdl-switch.is-checked.dark .mdl-switch__track{
@@ -73,11 +122,11 @@
       }
       
       .mdl-switch.is-checked.dark .mdl-switch__thumb{
-        background:#3b89b0;
+        background:var(--secondary-accent);
       }
       
       .mdl-switch.is-checked.dark .mdl-ripple{
-        background:#3b89b0;
+        background:var(--secondary-accent);
       }
       
       .mdl-switch.dark .mdl-switch__track{
@@ -85,16 +134,16 @@
       }
       
       .mdl-switch.dark .mdl-switch__thumb{
-        background:#546e7a;
+        background:var(--track);
       }
       
       .mdl-switch.dark .mdl-ripple{
-        background:#546e7a;
+        background:var(--track);
       }
       
       .mdl-textfield__error.dark {
-        background:#37474f;
-        color:#ef9a9a;
+        background:var(--text-fill);
+        color:var(--text-error);
       }
       
       .mdl-chip__contact {
@@ -111,35 +160,21 @@
       }
       
       .mdl-button--accent.dark {
-        color:#7986cb;
-        border-color:#7986cb;
+        color:var(--accent);
+        border-color:var(--accent);
       }
       
-      .mdl-button--accent:hover {
-        background-color:#e3f2fd;
+      .mdl-button--accent:hover, .mdl-button--accent:focus:not(:active) {
+        background-color:var(--hover-bg);
       }
       
-      .mdl-button--accent:focus:not(:active) {
-        background:#e3f2fd;
-      }
-      
-      .mdl-button--accent.dark:hover {
+      .mdl-button--accent.dark:hover, .mdl-button--accent.dark:active, .mdl-button--accent.dark:focus:not(:active) {
         background-color:rgba(121, 134, 203, 0.2);
-        border-color:#7986cb;
-      }
-      
-      .mdl-button--accent.dark:focus:not(:active) {
-        background-color:rgba(121, 134, 203, 0.2);
-        border-color:#7986cb;
+        border-color:var(--accent);
       }
       
       .mdl-button--accent:active {
-        background-color:#e3f2fd;
-      }
-      
-      .mdl-button--accent.dark:active {
-        background-color:rgba(121, 134, 203, 0.2);
-        border-color:#7986cb;
+        background-color:var(--hover-bg);
       }
       
       .raised-button:active {
@@ -155,7 +190,7 @@
       }
       
       .mdl-button--accent {
-        border-color: #bbdefb;
+        border-color: var(--border);
         border-width:1px;
         border-style: solid;
       }
@@ -170,8 +205,8 @@
       }
       
       .mdl-button--accent.dark[disabled] {
-        border-color:#3a454b;
-        color:#3a454b;
+        border-color:var(--disabled-fill);
+        color:var(--disabled-fill);
       }
       
       .mdl-button--accent.dark:hover[disabled] {
@@ -179,46 +214,35 @@
       }
       
       .mdl-button--accent.dark[disabled] .add-bookmark-icon {
-        color:#3a454b;
+        color:var(--disabled-fill);
       }
       
       .mdl-button--accent[disabled] {
-        border-color:#e0e0e0;
-        background-color:#9e9e9e;
+        border-color:var(--disabled);
+        background-color:var(--disabled-bg);
       }
       
       .mdl-button--red {
         border-radius:5px;
         border-style:solid;
         border-width:1px;
-        border-color:#e0e0e0;
+        border-color:var(--disabled);
       }
       
-      .mdl-button--red:hover {
-        background-color:#ffebee;
-        border-color:#ffcdd2;
+      .mdl-button--red:hover, .mdl-button--red:focus:not(:hover) {
+        background-color:var(--hover-bg);
+        border-color:var(--border-hover);
       }
       
-      .mdl-button--red:focus:not(:hover) {
-        background-color:#ffebee;
-        border-color:#ffcdd2;
-      }
-      
-      .mdl-button--red.dark:hover {
+      .mdl-button--red.dark:hover, .mdl-button--red.dark:focus:not(:hover) {
         background-color:red;
         border-color:red;
-        color:#e1e7ea;
-      }
-      
-      .mdl-button--red:focus:not(:hover) {
-        background-color:red;
-        border-color:red;
-        color:#e1e7ea;
+        color:var(--hover-text-dark);
       }
       
       .mdl-button--red:active {
-        background-color:#ffdce0;
-        border-color:#f7b3b6;
+        background-color:var(--bg-active);
+        border-color:var(--border-active);
       }
       
       .mdl-button--red.dark:active {
@@ -228,61 +252,53 @@
       }
       
       button.dark {
-        color:#90a4ae;
-        border-color:#90a4ae;
+        color:var(--text);
+        border-color:var(--text);
       }
       
       .mdl-progress.dark > .progressbar {
-        background-color: #3b89b0;
+        background-color: var(--secondary-accent);
       }
       
       .mdl-progress.dark > .bufferbar {
-        background-image: linear-gradient(to right, rgba(255,255,255, 0.7), rgba(255,255,255, 0.7)), linear-gradient(to right, #3b89b0, #3b89b0);
+        background-image: linear-gradient(to right, rgba(255,255,255, 0.7), rgba(255,255,255, 0.7)), linear-gradient(to right, var(--secondary-accent), var(--secondary-accent));
       }
       
       .mdl-progress.dark > .auxbar {
-        background-image: linear-gradient(to right, rgba(255,255,255, 0.9), rgba(255,255,255, 0.9)), linear-gradient(to right, #3b89b0, #3b89b0);
+        background-image: linear-gradient(to right, rgba(255,255,255, 0.9), rgba(255,255,255, 0.9)), linear-gradient(to right, var(--secondary-accent), var(--secondary-accent));
       }
       
       .bookmark-button {
         border-radius: 40px;
         white-space:nowrap;
         font-size:14px;
-        border-color:#e0e0e0;
+        border-color:var(--disabled);
         border-width:0.5px;
         border-style: solid;
       }
       
-      .bookmark-button:hover {
+      .bookmark-button:hover, .bookmark-button:focus:not(:hover) {
         background-color:#eeeeee;
       }
       
-      .bookmark-button:focus:not(:hover) {
-        background-color:#eeeeee;
-      }
-      
-      .bookmark-button.dark:hover {
-        background-color:rgba(238, 238, 238, 0.1);
-      }
-      
-      .bookmark-button.dark:focus:not(:hover) {
+      .bookmark-button.dark:hover, .bookmark-button.dark:focus:not(:hover) {
         background-color:rgba(238, 238, 238, 0.1);
       }
       
       .bookmark-button:active {
-        background-color:#E7E7E7;
-        border-color:#cfcfcf;
+        background-color:#e7e7e7;
+        border-color:var(--active-border);
       }
       
       .bookmark-button.dark:active {
-        background-color:rgba(144, 164, 174, 0.3);
-        border-color:#78909c;
+        background-color:rgba(144, 164, 174, 0.3) !important;
+        border-color:var(--dark-border-active);
       }
       
       .bookmark-list {
         line-height: 3em;
         width: 100px;
-        margin-top:-5px;
+        margin-top:-10px;
       }
       
       #bookmark-list-container {
@@ -303,12 +319,12 @@
       }
       
       .add-bookmark-icon.dark {
-        color:#7986cb;
+        color:var(--accent);
       }
       
       .mdl-textfield--floating-label .mdl-textfield__label.dark:after {
         content: '';
-        background: #3b89b0;
+        background: var(--secondary-accent);
       }
       
       .mdl-textfield--floating-label.is-invalid .mdl-textfield__label.dark:after {
@@ -362,11 +378,11 @@
       }
       
       .mdl-textfield__input.dark + .mdl-textfield__label {
-        color: #3b89b0;
+        color: var(--secondary-accent);
       }
       
       .mdl-textfield__input.dark:invalid + .mdl-textfield__label {
-        color: #ef9a9a;
+        color: var(--text-error);
       }
       
       input:invalid {
@@ -383,16 +399,20 @@
       }
       
       .mdl-list__item-text-body.dark {
-        color:#90a4ae;
+        color:var(--text);
       }
       
       .mdl-list__item-sub-title.dark {
-        color:#90a4ae !important;
+        color:var(--text) !important;
         /*I am sorry developers everywhere*/
       }
       
       .mdl-list__item--three-line {
         height:90px;
+      }
+      
+      .mdl-list__item {
+        overflow: visible;
       }
       
       .nav-button {
@@ -444,10 +464,6 @@
         margin-right: 35px;
       }
       
-      #default-day-types {
-        width:180px;
-      }
-      
       .shake {
         animation: shake 0.3s;
         animation-iteration-count: 1;
@@ -473,7 +489,7 @@
       }
       
       .mdl-textfield__error.dark[disabled] {
-        background-color: #3a454b;
+        background-color: var(--disabled-fill);
         color: gray;
       }
       
@@ -495,27 +511,13 @@
       }
       
       .no-bookmarks.dark {
-        color:#90a4ae;
+        color:var(--text);
       }
-      
-      #default-day-types {
-        width:188px;
-      }
-      
-      /*
-      .mdl-list__item .mdl-list__item-primary-content {
-        align-items:flex-start;
-      }
-      
-      
-      .mdl-list__item-icon {
-        margin-top:5px;
-      }*/
       
       .circle {
         position: absolute;
         width: 1000px;
-        height: 622px;
+        height: 620px;
         left:-1000px;
         z-index:10;
         top:0;
@@ -524,12 +526,12 @@
         transition: all 0.5s;
       }
       
-      .circle.close {
+      .close {
         left:100%;
       }
       
       .circle.dark {
-        background:	#37474f;
+        background:var(--text-fill);
       }
       
       div[tabindex="-1"]:focus {
@@ -566,6 +568,77 @@
       
       #time-icon {
         margin-top:10px;
+      }
+      
+      #edit-time-icon {
+        margin-top: 5px;
+      }
+      
+      #default-day-types {
+        width:188px;
+      }
+      
+      .mdl-list__item--three-line {
+        padding-right:0px;
+      }
+      
+      #settings-day-icon {
+        margin-top:3px;
+      }
+      
+      div.preloader {
+        position:absolute;
+        height:620px;
+        width:300px;
+        background:white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow:hidden;
+        transition: background 1s;
+      }
+      
+      div.preloader.dark {
+        background: var(--bg-dark);
+      }
+      
+      div.preloader-circle {
+        position:absolute;
+        height:100px;
+        width:100px;
+        background:#3f51b5;
+        border-radius:100%;
+        -webkit-animation:grow 2s infinite;
+      }
+      
+      div.preloader.dark div.preloader-circle {
+        background: var(--secondary-accent);
+      }
+      
+      div.preloader span {
+        color: black;
+        font-size:40px;
+      }
+      
+      div.preloader.dark span {
+        color: var(--text);
+      }
+      
+      @-webkit-keyframes grow {
+        0% {
+          opacity:0.5;
+          -webkit-transform: scale( 0 );-moz-transform: scale( 0 );-o-transform: scale( 0 );-ms-transform: scale( 0 );transform: scale( 0 );
+        }
+        
+        99% {
+          opacity:0;
+          -webkit-transform: scale( 8 );-moz-transform: scale( 8 );-o-transform: scale( 8 );-ms-transform: scale( 8 );transform: scale( 8 );
+        }
+        
+        100% {
+          opacity:0;
+          -webkit-transform: scale( 0 );-moz-transform: scale( 0 );-o-transform: scale( 0 );-ms-transform: scale( 0 );transform: scale( 0 );
+        }
       }
       
       @keyframes shake {
@@ -615,6 +688,10 @@
             Save edits
           </div>
         </div>
+        <div class="preloader">
+          <span>Due</span>
+          <div class="preloader-circle"></div>
+        </div>
         <div class="circle grow"></div>
       </header>
       <div id = "loading-bar" class = "mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
@@ -656,6 +733,7 @@
                   </span>
                 </span>
               </li>
+              
               <li class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
                   <i class="material-icons mdl-list__item-icon">notifications</i>
@@ -687,17 +765,17 @@
           
           <div class="tab" id="edit-tab">
             <ul class="mdl-list list-padded">
-              <li class="mdl-list__item">
+              <li class="mdl-list__item mdl-list__item--three-line">
                 <span class="mdl-list__item-primary-content">
-                  <i class="material-icons mdl-list__item-icon">access_time</i>
-                  <div>
-                    <div id="datepicker-div" class="mdl-textfield mdl-js-textfield mdl-datepicker">
-                      <input class="mdl-textfield__input" type="date" name="date" id="datepicker" value="">
-                    </div>
+                  <i class="material-icons mdl-list__item-icon" id="edit-time-icon">access_time</i>
+                  <div id="datepicker-div" class="mdl-textfield mdl-js-textfield mdl-datepicker">
+                    <input class="mdl-textfield__input" type="date" name="date" id="datepicker" value="">
+                  </div>
+                  <span class="mdl-list__item-text-body">
                     <div id="timepicker-div" class="mdl-textfield mdl-js-textfield mdl-datepicker">
                       <input class="mdl-textfield__input" type="time" id="timepicker" value="">
                     </div>
-                  </div>
+                  </span>
                 </span>
               </li>
               
@@ -732,7 +810,7 @@
                   Show Google Calendar Event
                 </span>
                 <span class="mdl-list__item-secondary-action">
-                  <label class="mdl-switch mdl-js-switch mdl-js--effect" id="show-g-calendar-switch-label" for="show-g-calendar-switch">
+                  <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" id="show-g-calendar-switch-label" for="show-g-calendar-switch">
                     <input type="checkbox" id="show-g-calendar-switch" class="mdl-switch__input" checked />
                   </label>
                 </span>
@@ -796,25 +874,23 @@
           
           <div class="tab" id="settings-tab">
             <ul class="mdl-list list-padded">
-              <li class="mdl-list__item">
+              <li class="mdl-list__item mdl-list__item--three-line">
                 <span class="mdl-list__item-primary-content">
-                  <i class="material-icons mdl-list__item-icon">access_time</i>
-                  <div>
-                    <div class="nested-span">
-                      <select class="mdl-textfield__input" id="default-day-types">
+                  <i class="material-icons mdl-list__item-icon" id="settings-day-icon">access_time</i>
+                  <select class="mdl-textfield__input" id="default-day-types">
                           <option id="default-day-types-same">The same day</option>
                           <option id="default-day-types-next">The next day</option>
                           <option id="default-day-types-first">The first suggestion</option>
                           <option id="default-day-types-custom">Custom</option>
                         </select>
-                      <div id="default-datepicker-div" class="mdl-textfield mdl-js-textfield mdl-datepicker">
-                        <input class="mdl-textfield__input" type="date" name="date" id="default-datepicker" value="">
-                      </div>
-                      <div id="default-timepicker-div" class="mdl-textfield mdl-js-textfield mdl-datepicker">
-                        <input class="mdl-textfield__input" type="time" id="default-timepicker" value="00:00">
-                      </div>
+                  <span class="mdl-list__item-text-body">
+                    <div id="default-datepicker-div" class="mdl-textfield mdl-js-textfield mdl-datepicker">
+                      <input class="mdl-textfield__input" type="date" name="date" id="default-datepicker" value="">
                     </div>
-                  </div>
+                    <div id="default-timepicker-div" class="mdl-textfield mdl-js-textfield mdl-datepicker">
+                      <input class="mdl-textfield__input" type="time" id="default-timepicker" value="00:00">
+                    </div>
+                  </span>
                 </span>
               </li>
               
@@ -848,7 +924,7 @@
                   Show Google Calendar Event
                 </span>
                 <span class="mdl-list__item-secondary-action padded-secondary-action">
-                  <label class="mdl-switch mdl-js-switch mdl-js--effect" id="default-show-g-calendar-switch-label" for="default-show-g-calendar-switch">
+                  <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" id="default-show-g-calendar-switch-label" for="default-show-g-calendar-switch">
                     <input type="checkbox" id="default-show-g-calendar-switch" class="mdl-switch__input" checked/>
                   </label>
                 </span>
@@ -1071,6 +1147,11 @@
         
         function showLoadingBar(on) {
           on ? $('#loading-bar').fadeIn() : $('#loading-bar').fadeOut();
+          if(!on) showPreloader(false);
+        }
+        
+        function showPreloader(on) {
+          on ? $('.preloader').show() : $('.preloader').fadeOut(500);
         }
         
         function loadDataNew(data) {
@@ -1202,6 +1283,8 @@
             $('span').addClass("dark");
             $('.mdl-progress').addClass("dark");
             $('.mdl-textfield__label').addClass("dark");
+            $('.preloader').addClass("dark");
+            $('.preloader-circle').addClass("dark");
           } else {
             $('body').removeClass("dark");
             $('i').removeClass("dark");
@@ -1213,6 +1296,8 @@
             $('button').removeClass("dark");
             $('.mdl-progress').removeClass("dark");
             $('.mdl-textfield__label').removeClass("dark");
+            $('.preloader').removeClass("dark");
+            $('.preloader-circle').removeClass("dark")
           }
         }
         
