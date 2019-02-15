@@ -105,8 +105,9 @@
       }
       
       .add-bookmark-button {
-        border-radius: 40px;
         font-size:14px;
+        border-radius:40px;
+        margin-top:5px;
       }
       
       .mdl-button--accent.dark {
@@ -118,7 +119,16 @@
         background-color:#e3f2fd;
       }
       
+      .mdl-button--accent:focus:not(:active) {
+        background:#e3f2fd;
+      }
+      
       .mdl-button--accent.dark:hover {
+        background-color:rgba(121, 134, 203, 0.2);
+        border-color:#7986cb;
+      }
+      
+      .mdl-button--accent.dark:focus:not(:active) {
         background-color:rgba(121, 134, 203, 0.2);
         border-color:#7986cb;
       }
@@ -189,11 +199,20 @@
         border-color:#ffcdd2;
       }
       
+      .mdl-button--red:focus:not(:hover) {
+        background-color:#ffebee;
+        border-color:#ffcdd2;
+      }
+      
       .mdl-button--red.dark:hover {
-        /*background-color:rgba(181, 28, 28, 0.7);*/
         background-color:red;
         border-color:red;
-        /*border-color:	#c62828;*/
+        color:#e1e7ea;
+      }
+      
+      .mdl-button--red:focus:not(:hover) {
+        background-color:red;
+        border-color:red;
         color:#e1e7ea;
       }
       
@@ -219,13 +238,11 @@
       }
       
       .mdl-progress.dark > .bufferbar {
-        background:#8cbfd9;
-        /*background-image: linear-gradient(to right, rgba(255,255,255, 0.7), rgba(255,255,255, 0.7)), linear-gradient(to right, #3b89b0, #3b89b0);*/
+        background-image: linear-gradient(to right, rgba(255,255,255, 0.7), rgba(255,255,255, 0.7)), linear-gradient(to right, #3b89b0, #3b89b0);
       }
       
       .mdl-progress.dark > .auxbar {
-        background:#8cbfd9;
-        /*background-image: linear-gradient(to right, rgba(255,255,255, 0.9), rgba(255,255,255, 0.9)), linear-gradient(to right, #3b89b0, #3b89b0);*/
+        background-image: linear-gradient(to right, rgba(255,255,255, 0.9), rgba(255,255,255, 0.9)), linear-gradient(to right, #3b89b0, #3b89b0);
       }
       
       .bookmark-button {
@@ -233,7 +250,7 @@
         white-space:nowrap;
         font-size:14px;
         border-color:#e0e0e0;
-        border-width:1px;
+        border-width:0.5px;
         border-style: solid;
       }
       
@@ -241,7 +258,15 @@
         background-color:#eeeeee;
       }
       
+      .bookmark-button:focus:not(:hover) {
+        background-color:#eeeeee;
+      }
+      
       .bookmark-button.dark:hover {
+        background-color:rgba(238, 238, 238, 0.1);
+      }
+      
+      .bookmark-button.dark:focus:not(:hover) {
         background-color:rgba(238, 238, 238, 0.1);
       }
       
@@ -256,8 +281,9 @@
       }
       
       .bookmark-list {
-        line-height: 2.5em;
+        line-height: 3em;
         width: 100px;
+        margin-top:-5px;
       }
       
       #bookmark-list-container {
@@ -455,6 +481,16 @@
         width:188px;
       }
       
+      /*
+      .mdl-list__item .mdl-list__item-primary-content {
+        align-items:flex-start;
+      }
+      
+      
+      .mdl-list__item-icon {
+        margin-top:5px;
+      }*/
+      
       .circle {
         position: absolute;
         width: 1000px;
@@ -473,6 +509,42 @@
       
       .circle.dark {
         background:	#37474f;
+      }
+      
+      div[tabindex="-1"]:focus {
+        outline: none;
+      }
+      
+      .mdl-textfield.is-dirty > .mdl-textfield__label {
+        margin-top:-3px;
+      }
+      
+      .mdl-textfield:not(.is-dirty).is-focused > .mdl-textfield__label {
+        margin-top:-3px;
+      }
+      
+      .mdl-textfield__label {
+        margin-top:-2px;
+      }
+      
+      #main-dueon-text {
+        font-size:16px;
+      }
+      
+      .mdl-list__item--three-line {
+        height:auto;
+      }
+      
+      .mdl-list__item--three-line .mdl-list__item-primary-content {
+        height:auto;
+      }
+      
+      .mdl-list__item--three-line .mdl-list__item-text-body {
+        height:auto;
+      }
+      
+      #time-icon {
+        margin-top:10px;
       }
       
       @keyframes shake {
@@ -554,17 +626,15 @@
           
           <div class="tab" id="main-tab">
             <ul class="mdl-list">
-              <li class="mdl-list__item">
+              <li class="mdl-list__item mdl-list__item--three-line">
                 <span class="mdl-list__item-primary-content">
-                  <i class="material-icons mdl-list__item-icon">access_time</i>
-                    <div>
-                      <span id="main-duein-text">Due in</span>
-                      <br>
-                      <span id="main-dueon-text">Due:</span>
-                    </div>
+                  <i id="time-icon" class="material-icons mdl-list__item-icon">access_time</i>
+                  <span id="main-duein-text">Due in</span>
+                  <span class="mdl-list__item-text-body">
+                    <span id="main-dueon-text">Due:</span>
+                  </span>
                 </span>
               </li>
-              
               <li class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
                   <i class="material-icons mdl-list__item-icon">notifications</i>
@@ -578,22 +648,19 @@
                   <div>
                     <a id="g-calendar-link" href="https://www.google.com">Google calendar: on</a>
                     <div id="g-calendar-off">Google calendar: off</div>
-                    <!--button id="g-calendar-button" class="mdl-button mdl-js-button mdl-button--accent square-button">
-                      G Calendar
-                    </button-->
                   </div>
-                    <!--div class="mdl-tooltip" data-mdl-for="g-calendar-button">Open in google calendar</div-->
                 </span>
               </li>
               
-              <li class="mdl-list__item">
+              <li class="mdl-list__item mdl-list__item--three-line">
                 <span class="mdl-list__item-primary-content">
                   <i class="material-icons mdl-list__item-icon">bookmarks</i>
                   <i class="no-bookmarks">No bookmarks</i>
-                  <div class="bookmark-list"></div>
+                  <span class="mdl-list__item-text-body">
+                    <div class="bookmark-list"></div>
+                  </span>
                 </span>
               </li>
-              
             </ul>
           </div>
           
@@ -614,7 +681,7 @@
               </li>
               
               <li class="mdl-list__item notification-list">
-                <div id="notification-edit-div">
+                <div id="notification-edit-div" tabindex="-1">
                   <span class="mdl-list__item-primary-content">
                     <i class="material-icons mdl-list__item-icon">notifications</i>
                     <select class="mdl-textfield__input notification-types" id="notification-types">
@@ -650,13 +717,13 @@
                 </span>
               </li>
               
-              <li class="mdl-list__item">
+              <li class="mdl-list__item mdl-list__item--three-line">
                 <span class="mdl-list__item-primary-content">
                   <i class="material-icons mdl-list__item-icon">bookmarks</i>
-                  <div id="bookmark-list-container">
-                    <i class="no-bookmarks">No bookmarks</i>
+                  <i class="no-bookmarks">No bookmarks</i>
+                  <span class="mdl-list__item-text-body">
                     <div class="bookmark-list"></div>
-                    <div id="add-bookmark-div">
+                    <div id="add-bookmark-div" tabindex="-1">
                       <button class="mdl-button add-bookmark-button mdl-js-button mdl-button--accent raised-button" val="" type="button" id="add-bookmark">
                         <i class="material-icons add-bookmark-icon">add</i>
                         Add
@@ -664,10 +731,9 @@
                       <div class="mdl-tooltip" data-mdl-for="add-bookmark" id="add-bookmark-tooltip">Add bookmark</div>
                     </div>
                     <div class="mdl-tooltip" data-mdl-for="add-bookmark-div" id="add-bookmark-div-tooltip">You can't have more than 4 bookmarks</div>
-                  </div>
+                  </span>
                 </span>
               </li>
-              
             </ul>
           </div>
           
@@ -1344,6 +1410,7 @@
           } else {
             $("#add-bookmark-tooltip").show();
             $('#add-bookmark').removeAttr('disabled');
+            $('#add-bookmark-tooltip').removeClass('is-active');
             $('#add-bookmark-div-tooltip').hide();
           }
         }
@@ -1449,7 +1516,7 @@
         
         //Update methods
         function updateDateOnText(dateObj) {
-          var html = 'Due: <br><b>' + dateText(dateObj) + '</b> at <b>' + timeText(dateObj) + '</b>';
+          var html = 'Due: <b>' + dateText(dateObj) + '</b> at <b>' + timeText(dateObj) + '</b>';
           $('#main-dueon-text').html(html);
         }
         
@@ -1530,7 +1597,7 @@
         }
         
         function updateNotificationFields(time, type, timeType) {
-          time = time.substring(0, time.indexOf("."));
+          if(typeof time == "string") time = time.substring(0, time.indexOf("."));
           $('#notification-number').val(time);
           $('option').each(function() {
             var id = $(this).attr('id');
@@ -2124,8 +2191,7 @@
             monthIndex+=1;
           }
           var year = date.getFullYear();
-          //console.log("Yee");
-          return day + ' ' + monthNames[monthIndex] + ' ' + year;
+          return (monthIndex+1) + '/' + day + '/' + year;
         }
         
         //Stack Overflow
