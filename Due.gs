@@ -206,9 +206,10 @@ function logDates() {
   return dates;
 }
 
-function getCurrentEvent() {
-  return 
-}
+/*function deleteAllSettings() {
+  var userProp = PropertiesService.getUserProperties();
+  userProp.deleteAllProperties();
+}*/
 
 function getEvent(id) {
   return CalendarApp.getDefaultCalendar().getEventById(id);
