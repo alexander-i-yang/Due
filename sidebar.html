@@ -68,6 +68,13 @@
         color:var(--text);
       }
       
+      .material-icons {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      
       .material-icons.dark {
         color:var(--highlight);
       }
@@ -332,14 +339,6 @@
         background:red;
       }
       
-      .mdl-textfield--floating-label .mdl-textfield__input {
-        overflow:visible;
-      }
-      
-      .mdl-textfield--floating-label.show-underline {
-        width:auto;
-      }
-      
       .floating-label-text {
         margin-left:4px;
       }
@@ -452,7 +451,6 @@
       
       #show-g-cal-list {
         padding-right:11px;
-        /*width:105%;*/
       }
       
       .mdl-list {
@@ -471,6 +469,11 @@
       .mdl-textfield--floating-label {
         padding-top:15px;
         padding-bottom:15px;
+      }
+      
+      
+      .mdl-textfield--floating-label {
+        width:auto !important;
       }
       
       .mdl-switch {
@@ -516,7 +519,7 @@
       .circle {
         position: absolute;
         width: 1000px;
-        height: 620px;
+        min-height: 100%; 
         left:-1000px;
         z-index:10;
         top:0;
