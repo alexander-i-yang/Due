@@ -604,26 +604,153 @@
         background: var(--bg-dark);
       }
       
-      div.preloader-circle {
+      .half-circle {
+        --width: 80px;
+        --height: 40px;
+        --border: 50px;
+        --bg: #3f51b5;
+      }
+      
+      .full-circle {
         position:absolute;
-        height:100px;
-        width:100px;
-        background:#3f51b5;
-        border-radius:100%;
-        -webkit-animation:grow 2s infinite;
       }
       
-      div.preloader.dark div.preloader-circle {
-        background: var(--secondary-accent);
+      .half-circle {
+        width: var(--width);
+        height: var(--height);
+        background:var(--bg);
+        opacity:0.7;
+        border-top-left-radius: var(--border);
+        border-top-right-radius: var(--border);
+        position:relative;
+        top 100px;
       }
       
-      div.preloader span {
-        color: black;
-        font-size:40px;
+      .fold {
+        background:var(--bg);
+        opacity:0.7;
       }
       
-      div.preloader.dark span {
-        color: var(--text);
+      .half-circle.left {
+        width: var(--height);
+        height: var(--width);
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: var(--border);
+      }
+      
+      .half-circle.right {
+        width: var(--height);
+        height: var(--width);
+        border-top-left-radius: 0px;
+        border-bottom-right-radius: var(--border);
+      }
+      
+      .arc {
+        width:60px;
+        height: 30px;
+        background-color: transparent;
+        border: 10px solid var(--bg);
+        border-bottom: 0;
+        position:absolute;
+        top:0px;
+        left:0px;
+      }
+      
+      .rotate {
+        animation: rotate 1.5s ease 0s;
+        animation-iteration-count:1;
+        transform-origin: 50% 100%;
+        animation-fill-mode: forwards;
+        animation-delay: 0.5s;
+      }
+      
+      .container {
+        margin-left:5px;
+      }
+      
+      .fold-down {
+        animation: fold-down 1.5s ease 0s;
+        animation-iteration-count:1;
+        transform-origin: 50% 100%;
+        animation-fill-mode: forwards;
+        z-index:10;
+        animation-delay: 0.5s;
+      }
+      
+      .fold-left {
+        animation: fold-left 1.5s ease 0s;
+        animation-iteration-count:1;
+        transform-origin: 100% 0%;
+        animation-fill-mode: forwards;
+        z-index:10;
+        animation-delay: 0.5s;
+      }
+      
+      .fold-up {
+        animation: fold-up 1.5s ease 0s;
+        animation-iteration-count:1;
+        transform-origin: 0% 0%;
+        animation-fill-mode: forwards;
+        z-index:10;
+        animation-delay: 0.5s;
+      }
+      
+      @keyframes fold-down {
+        from {transform: rotateX(0deg);}
+        to {transform: rotateX(-180deg);}
+      }
+      
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+          opacity:0;
+        }
+        
+        10% {
+          opacity:0.3;
+        }
+        
+        40% {
+          opacity:0.9;
+        }
+        
+        100% {
+          opacity:0.9;
+          transform: rotate(-150deg);
+        }
+      }
+      
+      @keyframes fold-up {
+        from {transform: rotateX(0deg);}
+        to {transform: rotateX(180deg);}
+      }
+      
+      @keyframes fold-left {
+        from {transform: rotateY(0deg);}
+        to {transform: rotateY(180deg);}
+      }
+      
+      #d-right {
+        margin-top: -80px;
+        margin-left:40px;
+      }
+      
+      .arc#e {
+        top:270px;
+        left:197.5px;
+        z-index:0;
+      }
+      
+      .half-circle.bottom {
+        border-top-left-radius:0px;
+        border-top-right-radius:0px;
+        border-bottom-left-radius:var(--border);
+        border-bottom-right-radius:var(--border);
+      }
+      
+      #e-top {
+        opacity:1;
+        background:hsla(231, 48%, 65%, 1);
       }
       
       @-webkit-keyframes grow {
@@ -689,8 +816,19 @@
           </div>
         </div>
         <div class="preloader">
-          <span>Due</span>
-          <div class="preloader-circle"></div>
+          <div class="container">
+            <div class="half-circle left fold fold-left"></div>
+            <div id="d-right" class="half-circle right"></div>
+          </div>
+          <div class="container">
+            <div class="half-circle fold fold-down"></div>
+            <div class="half-circle bottom"></div>
+          </div>
+          <div class="container">
+            <div class="half-circle arc rotate" id="e"></div>
+            <div class="half-circle" id="e-top"></div>
+            <div class="half-circle bottom fold fold-up"></div>
+          </div>
         </div>
         <div class="circle grow"></div>
       </header>
@@ -1152,12 +1290,13 @@
         }
         
         function showLoadingBar(on) {
+          if(!on) showPreloader(false);
           on ? $('#loading-bar').fadeIn() : $('#loading-bar').fadeOut();
-          if(!on) setTimeout(showPreloader(false), 500);
+          
         }
         
         function showPreloader(on) {
-          on ? $('.preloader').show() : $('.preloader').fadeOut(500);
+          on ? $('.preloader').show() : $('.preloader').show().delay(900).fadeOut(500);
         }
         
         function loadDataNew(data) {
@@ -1290,7 +1429,7 @@
             $('.mdl-progress').addClass("dark");
             $('.mdl-textfield__label').addClass("dark");
             $('.preloader').addClass("dark");
-            $('.preloader-circle').addClass("dark");
+            $('.half-circle').addClass("dark");
           } else {
             $('body').removeClass("dark");
             $('i').removeClass("dark");
@@ -1303,7 +1442,7 @@
             $('.mdl-progress').removeClass("dark");
             $('.mdl-textfield__label').removeClass("dark");
             $('.preloader').removeClass("dark");
-            $('.preloader-circle').removeClass("dark")
+            $('.half-circle').removeClass("dark");
           }
         }
         
