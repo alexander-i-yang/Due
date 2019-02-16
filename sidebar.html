@@ -365,6 +365,7 @@
         background-color: #eeeeee;
         border-radius: 5px;
         border-bottom: 0.5px solid 	#bdbdbd;
+        color:black;
       }
       
       .mdl-textfield.is-invalid > .mdl-textfield__input[disabled] {
@@ -450,11 +451,9 @@
       }
       
       #show-g-cal-list {
-        width:105%;
+        padding-right:11px;
+        /*width:105%;*/
       }
-      
-      #show-g-calendar-span {
-        width:1      }
       
       .mdl-list {
         margin-top: 0px;
@@ -574,16 +573,16 @@
         margin-top: 5px;
       }
       
+      #settings-day-icon {
+        margin-top:3px;
+      }
+      
       #default-day-types {
         width:188px;
       }
       
       .mdl-list__item--three-line {
         padding-right:0px;
-      }
-      
-      #settings-day-icon {
-        margin-top:3px;
       }
       
       div.preloader {
@@ -629,12 +628,10 @@
           opacity:0.5;
           -webkit-transform: scale( 0 );-moz-transform: scale( 0 );-o-transform: scale( 0 );-ms-transform: scale( 0 );transform: scale( 0 );
         }
-        
         99% {
           opacity:0;
           -webkit-transform: scale( 8 );-moz-transform: scale( 8 );-o-transform: scale( 8 );-ms-transform: scale( 8 );transform: scale( 8 );
         }
-        
         100% {
           opacity:0;
           -webkit-transform: scale( 0 );-moz-transform: scale( 0 );-o-transform: scale( 0 );-ms-transform: scale( 0 );transform: scale( 0 );
@@ -936,7 +933,7 @@
                   Dark mode
                 </span>
                 <span class="mdl-list__item-secondary-action padded-secondary-action">
-                  <label class="mdl-switch mdl-js-switch" id="dark-mode-switch-label" for="dark-mode-switch">
+                  <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" id="dark-mode-switch-label" for="dark-mode-switch">
                     <input type="checkbox" id="dark-mode-switch" class="mdl-switch__input"/>
                   </label>
                 </span>
@@ -1024,12 +1021,18 @@
         }
         
         function loadDefaults(data) {
-          setDefaultDayType(data.dayType);
-          setDefaultTime(data.time);
-          setDefaultDay(data.day);
-          setDefaultNotification(data.notifType, data.notifTime, data.notifTimeType);
-          if(data.calendarOn == "false") changeDefaultNone(true);
-          setDefaultCalendarOn(data.calendarOn == "true");
+          if(data.dayType != null) {
+            setDefaultDayType(data.dayType);
+            setDefaultTime(data.time);
+            setDefaultDay(data.day);
+            setDefaultNotification(data.notifType, data.notifTime, data.notifTimeType);
+            if(data.calendarOn == "false") changeDefaultNone(true);
+            setDefaultCalendarOn(data.calendarOn == "true");
+          } else {
+            var d = new Date();
+            setDefaultDay(hyphenDate(d));
+            checkDefaultDayTypes();
+          }
         }
         
         function translateDayType(val) {
@@ -1147,7 +1150,7 @@
         
         function showLoadingBar(on) {
           on ? $('#loading-bar').fadeIn() : $('#loading-bar').fadeOut();
-          if(!on) showPreloader(false);
+          if(!on) setTimeout(showPreloader(false), 500);
         }
         
         function showPreloader(on) {
