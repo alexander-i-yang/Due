@@ -626,9 +626,18 @@
         top 100px;
       }
       
+      .half-circle.dark {
+        background:var(--secondary-accent);
+        transition: background 0.5s;
+      }
+      
       .fold {
         background:var(--bg);
         opacity:0.7;
+      }
+      
+      .fold.dark {
+        background:var(--secondary-accent);
       }
       
       .half-circle.left {
@@ -654,6 +663,11 @@
         position:absolute;
         top:0px;
         left:0px;
+      }
+      
+      .arc.dark {
+        background:transparent;
+        border-color:var(--secondary-accent);
       }
       
       .rotate {
@@ -751,6 +765,10 @@
       #e-top {
         opacity:1;
         background:hsla(231, 48%, 65%, 1);
+      }
+      
+      #e-top.dark {
+        background:hsla(200, 40%, 46%, 1);
       }
       
       @-webkit-keyframes grow {
